@@ -123,4 +123,5 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
   ],
+  graphqlTypegen: true,
 }

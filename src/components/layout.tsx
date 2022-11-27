@@ -9,7 +9,13 @@ const ContentContainer = styled(Container)`
   padding: 20px 40px;
 `
 
-const Layout = ({ location, title, children }) => {
+interface LayoutProps {
+  location: Location
+  title: string
+  children: React.ReactNode
+}
+
+const Layout = ({ location, title, children }: LayoutProps) => {
   const rootPath = `/`
   const isRootPath = location.pathname === rootPath
   let header

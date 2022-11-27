@@ -2,6 +2,11 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 @import url(//fonts.googleapis.com/css?family=Monoton|Nanum+Gothic&display=swap);
 
+@font-face {
+  font-family: "TossFaceFontMac";
+  src: url("../static/fonts/TossFaceFontMac.ttf") format("truetype");
+}
+
 :root {
   --maxWidth-none: "none";
   --maxWidth-xs: 20rem;
@@ -319,6 +324,10 @@ a:focus {
   margin-bottom: var(--spacing-8);
 }
 
+.emoji {
+  font-family: "TossFaceFontMac";
+}
+
 /* Media queries */
 
 @media (max-width: 42rem) {
@@ -330,4 +339,4 @@ a:focus {
   ol {
     list-style-position: inside;
   }
-}
+} ;

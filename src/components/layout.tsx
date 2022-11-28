@@ -1,18 +1,19 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import Header from "./header"
 import Footer from "./footer"
 
 interface LayoutProps {
   location: Location
-  title: string
   children: React.ReactNode
-  categories: string[]
 }
 
-const Layout = ({ location, title, children, categories }: LayoutProps) => {
+const Layout = ({ location, children }: LayoutProps) => {
   const rootPath = `/`
   const isRootPath = location.pathname === rootPath
+  const data = useStaticQuery<Queries.LayoutComponentQuery>(LayoutQuery)
+  const title = data.site.siteMetadata.title
+  const categories = data.categories.group.map(v => v.fieldValue)
 
   let header
 
@@ -42,3 +43,19 @@ const Layout = ({ location, title, children, categories }: LayoutProps) => {
 }
 
 export default Layout
+
+export const LayoutQuery = graphql`
+  query LayoutComponent {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    categories: allMarkdownRemark {
+      group(field: { frontmatter: { category: SELECT } }) {
+        fieldValue
+        totalCount
+      }
+    }
+  }
+`

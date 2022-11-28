@@ -14,9 +14,7 @@ const HeaderContainer = styled(Container)`
   align-items: center;
 `
 
-const LogoContainer = styled.div`
-  /* height: 100%; */
-`
+const LogoContainer = styled.div``
 
 const MenuContainer = styled.div``
 
@@ -25,14 +23,16 @@ const Header = ({ categories }: { categories: string[] }) => {
     <NavContainer>
       <HeaderContainer>
         <LogoContainer>
-          <StaticImage
-            className="j-logo"
-            src="../images/logo.png"
-            placeholder="none"
-            height={20}
-            quality={100}
-            alt="Logo here"
-          />
+          <Link to="/">
+            <StaticImage
+              className="j-logo"
+              src="../images/logo.png"
+              placeholder="none"
+              height={20}
+              quality={100}
+              alt="Logo here"
+            />
+          </Link>
         </LogoContainer>
         <MenuContainer>
           <Buttons>

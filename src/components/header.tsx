@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { StaticImage } from "gatsby-plugin-image"
 import { Button, Buttons, ButtonText, Container } from "./styles"
+import { Link } from "gatsby"
 
 const NavContainer = styled.nav`
   height: 60px;
@@ -19,7 +20,7 @@ const LogoContainer = styled.div`
 
 const MenuContainer = styled.div``
 
-const Header = () => {
+const Header = ({ categories }: { categories: string[] }) => {
   return (
     <NavContainer>
       <HeaderContainer>
@@ -29,18 +30,21 @@ const Header = () => {
             src="../images/logo.png"
             placeholder="none"
             height={20}
-            // quality={100}
+            quality={100}
             alt="Logo here"
           />
         </LogoContainer>
         <MenuContainer>
           <Buttons>
-            <Button>
-              <ButtonText>Category</ButtonText>
-            </Button>
-            <Button>
-              <ButtonText>Abount</ButtonText>
-            </Button>
+            {categories.map(category => {
+              return (
+                <Link to={`/categories/${category}`} key={category}>
+                  <Button>
+                    <ButtonText>{category}</ButtonText>
+                  </Button>
+                </Link>
+              )
+            })}
           </Buttons>
         </MenuContainer>
       </HeaderContainer>

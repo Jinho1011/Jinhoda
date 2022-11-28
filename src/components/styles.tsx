@@ -23,11 +23,11 @@ export const Button = styled.li`
   color: #4e5968;
 `
 
-export const ButtonText = styled.a`
+export const ButtonText = styled.span`
   padding: 12px 10px;
   font-size: 15px;
   line-height: 20px;
-  color: currentColor;
+  color: var(--color-text);
   border-radius: 8px;
   border: 0;
   cursor: pointer;
@@ -36,6 +36,6 @@ export const ButtonText = styled.a`
   text-align: left;
 
   &:hover {
-    background-color: aliceblue;
+    background-color: rgba(2, 32, 71, 0.05);
   }
 `

@@ -201,10 +201,7 @@ table thead tr th {
 
 /* Link */
 
-a {
-  color: var(--color-primary);
-}
-
+a,
 a:hover,
 a:focus {
   text-decoration: none;

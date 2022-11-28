@@ -1,23 +1,19 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { Container } from "./styles"
-import styled from "styled-components"
 import Header from "./header"
 import Footer from "./footer"
-
-const ContentContainer = styled(Container)`
-  padding: 20px 40px;
-`
 
 interface LayoutProps {
   location: Location
   title: string
   children: React.ReactNode
+  categories: string[]
 }
 
-const Layout = ({ location, title, children }: LayoutProps) => {
+const Layout = ({ location, title, children, categories }: LayoutProps) => {
   const rootPath = `/`
   const isRootPath = location.pathname === rootPath
+
   let header
 
   if (isRootPath) {
@@ -38,10 +34,8 @@ const Layout = ({ location, title, children }: LayoutProps) => {
 
   return (
     <div data-is-root-path={isRootPath}>
-      <Header />
-      <main>
-        <ContentContainer>{children}</ContentContainer>
-      </main>
+      <Header categories={categories} />
+      {children}
       <Footer />
     </div>
   )

@@ -8,7 +8,7 @@ import { Container } from "../components/styles"
 import Post from "../components/post"
 
 const MainContainer = styled(Container)`
-  padding: 0 80px;
+  /* padding: 0 40px; */
 `
 
 interface BlogIndexProps {

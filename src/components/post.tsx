@@ -40,7 +40,7 @@ const Article = styled.article`
 `
 
 const List = styled.li`
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 `
 
 const Small = styled.small`

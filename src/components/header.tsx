@@ -27,7 +27,7 @@ const Header = ({ categories }: { categories: string[] }) => {
           <Link to="/">
             <StaticImage
               className="j-logo"
-              src="../images/logo.png"
+              src="../images/jinhoda.png"
               placeholder="none"
               height={20}
               quality={100}

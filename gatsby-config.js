@@ -23,10 +23,16 @@ module.exports = {
   plugins: [
     `gatsby-plugin-image`,
     {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: `${__dirname}/src/posts`,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
+        path: `${__dirname}/src/posts`,
+        name: `posts`,
       },
     },
     {
@@ -123,6 +129,15 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-mdx`,
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-mdx-frontmatter",
+    },
   ],
   graphqlTypegen: true,
 }

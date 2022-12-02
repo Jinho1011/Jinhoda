@@ -116,10 +116,13 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      category: String
+      featuredImage: String
     }
 
     type Fields {
       slug: String
     }
+
   `)
 }

@@ -4,9 +4,7 @@ import Moon from "../images/Moon"
 import Sun from "../images/Sun"
 
 const ToggleLabel = styled.label`
-  width: 100px;
   display: block;
-  margin: auto; /* Centering for demo */
 
   .toggle {
     height: 32px;

@@ -4,8 +4,6 @@ import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const Section = styled.section`
-  width: 80%;
-
   p {
     color: ${({ theme }) => theme.color.text};
     display: block;
@@ -32,6 +30,11 @@ const Title = styled.span`
   -webkit-transition: color 0.3s ease;
   transition: color 0.3s ease;
   -webkit-line-clamp: 2;
+
+  @media ${({ theme }) => theme.device.mobile} {
+    font-size: 26px;
+    margin: 0;
+  }
 `
 
 const CoverImage = styled(GatsbyImage)`
@@ -41,6 +44,11 @@ const CoverImage = styled(GatsbyImage)`
   border-radius: 14px;
   object-fit: cover;
   transition: 0.2s ease-in-out;
+
+  @media ${({ theme }) => theme.device.mobile} {
+    max-width: 100%;
+    width: 100%;
+  }
 `
 
 const Article = styled.article`
@@ -74,6 +82,11 @@ const List = styled.li`
 
 const ContentContainer = styled.div`
   max-width: 600px;
+
+  h2 {
+    padding: 0;
+    margin: 0;
+  }
 `
 
 const Small = styled.small`

@@ -15,6 +15,7 @@ const MainContainer = styled(Container)`
 
 const PostList = styled.ul`
   list-style: none;
+  padding: 20px;
 `
 
 interface BlogIndexProps {

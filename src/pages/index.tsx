@@ -8,11 +8,17 @@ import { Container } from "../components/styles"
 import Post from "../components/post"
 
 const MainContainer = styled(Container)`
-  /* padding: 0 40px; */
+  display: flex;
+  justify-content: center;
+  max-width: 980px;
+`
+
+const PostList = styled.ul`
+  list-style: none;
 `
 
 interface BlogIndexProps {
-  data: Queries.IndexPageQuery
+  data: any
   location: Location
 }
 
@@ -32,17 +38,15 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
     )
   }
 
-  type postType = Pick<Queries.IndexPageQuery, "posts">
-
   return (
     <Layout location={location}>
       <main>
         <MainContainer>
-          <ul style={{ listStyle: `none` }}>
+          <PostList>
             {posts.map((post: Queries.IndexPageQuery["posts"]["nodes"][0]) => {
-              return <Post post={post} key={post.fields.slug} />
+              return <Post post={post} key={post.frontmatter.description} />
             })}
-          </ul>
+          </PostList>
         </MainContainer>
       </main>
     </Layout>
@@ -60,17 +64,20 @@ export const Head = () => <Seo title="All posts" />
 
 export const pageQuery = graphql`
   query IndexPage {
-    posts: allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+    posts: allMdx(sort: { frontmatter: { date: DESC } }) {
       nodes {
+        id
         excerpt
-        fields {
-          slug
-        }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
           title
+          date(formatString: "MMMM DD, YYYY")
           description
           category
+          featuredImage {
+            childImageSharp {
+              gatsbyImageData(width: 1600)
+            }
+          }
         }
       }
     }

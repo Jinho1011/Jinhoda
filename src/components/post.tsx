@@ -7,7 +7,7 @@ const Section = styled.section`
   width: 80%;
 
   p {
-    color: var(--color-text);
+    color: ${({ theme }) => theme.color.text};
     display: block;
     margin: 0;
     margin-bottom: 12px;
@@ -25,7 +25,7 @@ const Title = styled.span`
   font-weight: 700;
   font-size: 42px;
   line-height: 1.4;
-  color: var(--color-heading);
+  color: ${props => props.theme.color.heading};
   text-overflow: ellipsis;
   word-break: keep-all;
   overflow-wrap: break-word;
@@ -55,7 +55,7 @@ const Article = styled.article`
   }
 
   &:hover ${Title} {
-    color: var(--color-primary);
+    color: ${({ theme }) => theme.color.primary};
   }
 
   &:hover ${CoverImage} {
@@ -77,7 +77,7 @@ const ContentContainer = styled.div`
 `
 
 const Small = styled.small`
-  color: var(--color-text-light);
+  color: ${({ theme }) => theme.color.subText};
 `
 
 interface PostProps {
@@ -92,7 +92,7 @@ const Post = ({ post }: PostProps) => {
     <List>
       <Link to={post.frontmatter.title} itemProp="url">
         <Article itemScope itemType="http://schema.org/Article">
-          <CoverImage image={image} />
+          <CoverImage image={image} alt={title} />
           <ContentContainer>
             <header>
               <h2>

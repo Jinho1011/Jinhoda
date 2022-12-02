@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { StaticImage } from "gatsby-plugin-image"
 import { Button, Buttons, ButtonText, Container } from "./styles"
 import { Link } from "gatsby"
+import ThemeToggle from "./ThemeToggle"
 
 const NavContainer = styled.nav`
   height: 60px;
@@ -17,9 +18,22 @@ const HeaderContainer = styled(Container)`
 
 const LogoContainer = styled.div``
 
-const MenuContainer = styled.div``
+const MenuContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+`
 
-const Header = ({ categories }: { categories: string[] }) => {
+interface HeaderProps {
+  categories: string[]
+  isDarkMode: boolean
+  setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Header = ({ categories, isDarkMode, setIsDarkMode }: HeaderProps) => {
+  const toggle = () => {
+    setIsDarkMode(prev => !prev)
+  }
   return (
     <NavContainer>
       <HeaderContainer>
@@ -47,6 +61,7 @@ const Header = ({ categories }: { categories: string[] }) => {
               )
             })}
           </Buttons>
+          <ThemeToggle isDarkMode={isDarkMode} toggle={toggle} />
         </MenuContainer>
       </HeaderContainer>
     </NavContainer>

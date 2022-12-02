@@ -9,7 +9,7 @@ const FooterContainer = styled.footer`
 `
 
 const FooterText = styled.span`
-  color: var(--color-text-light);
+  color: ${({ theme }) => theme.color.text};
   margin-right: 6px;
 `
 

@@ -27,7 +27,7 @@ export const ButtonText = styled.span`
   padding: 12px 10px;
   font-size: 15px;
   line-height: 20px;
-  color: var(--color-text);
+  color: ${({ theme }) => theme.color.text};
   border-radius: 8px;
   border: 0;
   cursor: pointer;

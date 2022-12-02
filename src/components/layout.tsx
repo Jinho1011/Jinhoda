@@ -1,7 +1,9 @@
 import * as React from "react"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
+import { ThemeProvider } from "styled-components"
 import Header from "./header"
 import Footer from "./footer"
+import { darkTheme, lightTheme } from "../styles/theme"
 
 interface LayoutProps {
   location: Location
@@ -11,34 +13,26 @@ interface LayoutProps {
 const Layout = ({ location, children }: LayoutProps) => {
   const rootPath = `/`
   const isRootPath = location.pathname === rootPath
+
+  const [isDarkMode, setIsDarkMode] = React.useState(false)
+
   const data = useStaticQuery<Queries.LayoutComponentQuery>(LayoutQuery)
-  const title = data.site.siteMetadata.title
   const categories = data.categories.group.map(v => v.fieldValue)
 
-  let header
-
-  if (isRootPath) {
-    header = (
-      <h1 className="main-heading">
-        <Link to="/">
-          {title} <span className="emoji">😄</span>
-        </Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
-    )
-  }
+  const theme = isDarkMode ? darkTheme : lightTheme
 
   return (
-    <div data-is-root-path={isRootPath}>
-      <Header categories={categories} />
-      {children}
-      <Footer />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div style={{ backgroundColor: theme.color.background, height: "100vh" }}>
+        <Header
+          categories={categories}
+          isDarkMode={isDarkMode}
+          setIsDarkMode={setIsDarkMode}
+        />
+        {children}
+        <Footer />
+      </div>
+    </ThemeProvider>
   )
 }
 
@@ -51,7 +45,7 @@ export const LayoutQuery = graphql`
         title
       }
     }
-    categories: allMarkdownRemark {
+    categories: allMdx {
       group(field: { frontmatter: { category: SELECT } }) {
         fieldValue
         totalCount

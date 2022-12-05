@@ -19,7 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div style={{ backgroundColor: theme.color.background, height: "100vh" }}>
+      <div style={{ backgroundColor: theme.color.background }}>
         <Header
           categories={categories}
           isDarkMode={isDarkMode}

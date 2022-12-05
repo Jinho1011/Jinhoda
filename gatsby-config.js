@@ -46,6 +46,14 @@ module.exports = {
       ],
       options: {
         extensions: [".mdx", ".md", ".markdown"],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
       },
       resolve: "gatsby-plugin-mdx",
     },

@@ -2983,5 +2983,12 @@ type LayoutComponentQueryVariables = Exact<{ [key: string]: never; }>;
 
 type LayoutComponentQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null } | null } | null, readonly categories: { readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }> } };
 
+type PostTemplateQueryVariables = Exact<{
+  id: InputMaybe<Scalars['String']>;
+}>;
+
+
+type PostTemplateQuery = { readonly mdx: { readonly body: string | null, readonly id: string, readonly frontmatter: { readonly category: string | null, readonly date: string | null, readonly description: string | null, readonly id: number | null, readonly title: string | null, readonly featuredImage: { readonly childrenImageSharp: ReadonlyArray<{ readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null> | null } | null } | null } | null };
+
 
 }

@@ -19,7 +19,7 @@ const PostList = styled.ul`
 `
 
 interface BlogIndexProps {
-  data: any
+  data: Queries.IndexPageQuery
   location: Location
 }
 
@@ -28,7 +28,7 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
 
   if (posts.length === 0) {
     return (
-      <Layout location={location}>
+      <Layout>
         <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
@@ -40,7 +40,7 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
   }
 
   return (
-    <Layout location={location}>
+    <Layout>
       <main>
         <MainContainer>
           <PostList>
@@ -70,6 +70,7 @@ export const pageQuery = graphql`
         id
         excerpt
         frontmatter {
+          id
           title
           date(formatString: "MMMM DD, YYYY")
           description

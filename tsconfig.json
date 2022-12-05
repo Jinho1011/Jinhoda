@@ -8,7 +8,7 @@
   },
   "include": [
     "./src/**/*",
-    "./gatsby-node.ts",
+    "gatsby-node.js",
     "./gatsby-config.ts",
     "./plugins/**/*"
   ]

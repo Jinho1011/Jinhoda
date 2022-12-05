@@ -22,9 +22,6 @@ const Seo = ({ description, title, children }: SeoProps) => {
           siteMetadata {
             title
             description
-            social {
-              twitter
-            }
           }
         }
       }

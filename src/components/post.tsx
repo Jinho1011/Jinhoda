@@ -103,7 +103,10 @@ const Post = ({ post }: PostProps) => {
 
   return (
     <List>
-      <Link to={post.frontmatter.title} itemProp="url">
+      <Link
+        to={`${post.frontmatter.category}/${post.frontmatter.id}`}
+        itemProp="url"
+      >
         <Article itemScope itemType="http://schema.org/Article">
           <CoverImage image={image} alt={title} />
           <ContentContainer>

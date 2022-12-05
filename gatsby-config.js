@@ -36,6 +36,20 @@ module.exports = {
       },
     },
     {
+      gatsbyRemarkPlugins: [
+        {
+          options: {
+            maxWidth: 1080,
+          },
+          resolve: "gatsby-remark-images",
+        },
+      ],
+      options: {
+        extensions: [".mdx", ".md", ".markdown"],
+      },
+      resolve: "gatsby-plugin-mdx",
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -120,24 +134,11 @@ module.exports = {
         short_name: `Jinhoda`,
         start_url: `/`,
         background_color: `#ffffff`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-mdx`,
-    {
-      resolve: "gatsby-plugin-mdx",
-      options: {
-        extensions: [`.mdx`, `.md`],
-      },
-    },
-    {
-      resolve: "gatsby-plugin-mdx-frontmatter",
-    },
   ],
   graphqlTypegen: true,
 }

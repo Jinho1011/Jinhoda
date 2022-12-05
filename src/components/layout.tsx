@@ -6,14 +6,10 @@ import Footer from "./footer"
 import { darkTheme, lightTheme } from "../styles/theme"
 
 interface LayoutProps {
-  location: Location
   children: React.ReactNode
 }
 
-const Layout = ({ location, children }: LayoutProps) => {
-  const rootPath = `/`
-  const isRootPath = location.pathname === rootPath
-
+const Layout = ({ children }: LayoutProps) => {
   const [isDarkMode, setIsDarkMode] = React.useState(false)
 
   const data = useStaticQuery<Queries.LayoutComponentQuery>(LayoutQuery)

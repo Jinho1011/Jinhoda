@@ -3,6 +3,7 @@ import { DefaultTheme } from "styled-components"
 const color = {
   light: {
     background: "#ffffff",
+    blockquote: "#f3f4f5",
     foreground: "#37363b",
     primary: "#3182f6",
     text: "#4e5968",
@@ -12,6 +13,7 @@ const color = {
   },
   dark: {
     background: "#18171C",
+    blockquote: "#24282c",
     foreground: "#fefefe",
     primary: "#3182f6",
     text: "#fafafa",

@@ -3,8 +3,8 @@ import styled from "styled-components"
 
 const H1 = styled.h1`
   font-size: 1.5em;
-  margin-block-start: 0.83em;
-  margin-block-end: 0.83em;
+  margin-block-start: 1.4em;
+  margin-block-end: 1.2;
   line-height: 1.7;
   color: ${({ theme }) => theme.color.heading};
   word-break: keep-all;
@@ -13,8 +13,8 @@ const H1 = styled.h1`
 
 const H2 = styled.h2`
   font-size: 1.3em;
-  margin-block-start: 0.83em;
-  margin-block-end: 0.83em;
+  margin-block-start: 1.2em;
+  margin-block-end: 1em;
   line-height: 1.7;
   color: ${({ theme }) => theme.color.subHeading};
   word-break: keep-all;
@@ -23,8 +23,8 @@ const H2 = styled.h2`
 
 const H3 = styled.h3`
   font-size: 1.2em;
-  margin-block-start: 0.83em;
-  margin-block-end: 0.83em;
+  margin-block-start: 0.9em;
+  margin-block-end: 0.9em;
   line-height: 1.7;
   color: ${({ theme }) => theme.color.text};
   word-break: keep-all;
@@ -42,16 +42,23 @@ const P = styled.p`
 `
 
 const Blockquote = styled.blockquote`
-  background-color: #f3f4f5;
+  background-color: ${({ theme }) => theme.color.blockquote};
   margin: 0;
-  margin-top: 24px;
-  margin-bottom: 48px;
+  margin: 24px 0;
   border-radius: 12px;
   /* box-shadow: rgb(0 0 33 / 7%) 0px 16px 22.4px 4.8px,
     rgb(0 0 33 / 5%) 0px 3.2px 16px 0px, rgb(0 0 33 / 7%) 0px 0px 1px 0px; */
 
+  p:first-child {
+    padding-top: 24px;
+  }
+
+  p:last-child {
+    padding-bottom: 24px;
+  }
+
   p {
-    padding: 18px 30px;
+    padding: 8px 30px;
     margin: 0;
     color: ${({ theme }) => theme.color.subText};
   }

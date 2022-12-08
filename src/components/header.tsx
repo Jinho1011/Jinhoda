@@ -27,13 +27,10 @@ const MenuContainer = styled.div`
 interface HeaderProps {
   categories: string[]
   isDarkMode: boolean
-  setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>
+  toggle: any
 }
 
-const Header = ({ categories, isDarkMode, setIsDarkMode }: HeaderProps) => {
-  const toggle = () => {
-    setIsDarkMode(prev => !prev)
-  }
+const Header = ({ categories, isDarkMode, toggle }: HeaderProps) => {
   return (
     <NavContainer>
       <HeaderContainer>

@@ -4,18 +4,25 @@ import { ThemeProvider } from "styled-components"
 import Header from "./header"
 import Footer from "./footer"
 import { darkTheme, lightTheme } from "../styles/theme"
+import useDarkMode from "../hooks/useDarkMode"
 
 interface LayoutProps {
   children: React.ReactNode
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const [isDarkMode, setIsDarkMode] = React.useState(false)
+  const [isDarkMode, setIsDarkMode] = useDarkMode()
+  const theme = isDarkMode ? darkTheme : lightTheme
+
+  const toggle = () => {
+    setIsDarkMode(prev => {
+      window.localStorage.setItem("color-mode", !prev ? "dark" : "light")
+      return !prev
+    })
+  }
 
   const data = useStaticQuery<Queries.LayoutComponentQuery>(LayoutQuery)
   const categories = data.categories.group.map(v => v.fieldValue)
-
-  const theme = isDarkMode ? darkTheme : lightTheme
 
   return (
     <ThemeProvider theme={theme}>
@@ -23,7 +30,7 @@ const Layout = ({ children }: LayoutProps) => {
         <Header
           categories={categories}
           isDarkMode={isDarkMode}
-          setIsDarkMode={setIsDarkMode}
+          toggle={toggle}
         />
         {children}
         <Footer />

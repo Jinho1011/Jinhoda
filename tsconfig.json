@@ -10,6 +10,7 @@
     "./src/**/*",
     "gatsby-node.js",
     "./gatsby-config.ts",
-    "./plugins/**/*"
+    "./plugins/**/*",
+    "src/pages"
   ]
 }

@@ -3,24 +3,33 @@ backend:
   repo: Jinho1011/Jinhoda
   branch: master
 
-media_folder: static/img
-public_folder: /img
+locale: "ko"
+
+media_folder: static/images
+public_folder: /images
 publish_mode: editorial_workflow
 
 collections:
   - name: "blog"
     label: "Blog"
-    folder: "src/posts"
+    folder: "content/posts"
     create: true
     slug: "index"
     media_folder: ""
     public_folder: ""
-    path: "{{title}}/index"
+    path: "{{Category}}/{{ID}}"
     editor:
       preview: false
     fields:
+      - { label: "ID", name: "id", widget: "number" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          options: ["개발", "일상"],
+        }
+      - { label: "CoverImage", name: "featuredImage", widget: "image" }
+      - { label: "Body", name: "body", widget: markdown }

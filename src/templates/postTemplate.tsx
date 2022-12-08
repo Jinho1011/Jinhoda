@@ -38,23 +38,21 @@ const PostTemplate = ({ children, data }: PostTemplateProps) => {
   const date = new Date(frontmatter.date)
 
   return (
-    <Layout>
-      <MDXProvider components={components}>
-        <PostContainer>
-          <PostHeader>
-            <PostFeaturedImage
-              alt={""}
-              image={getImage(frontmatter.featuredImage.childrenImageSharp[0])}
-            />
-            <PostTitle>{frontmatter.title}</PostTitle>
-            <PostInfoSection>
-              <PostDate>{`${date.getFullYear()}.${date.getMonth()}.${date.getDate()}`}</PostDate>
-            </PostInfoSection>
-          </PostHeader>
-          <PostBody>{children}</PostBody>
-        </PostContainer>
-      </MDXProvider>
-    </Layout>
+    <MDXProvider components={components}>
+      <PostContainer>
+        <PostHeader>
+          <PostFeaturedImage
+            alt={""}
+            image={getImage(frontmatter.featuredImage.childrenImageSharp[0])}
+          />
+          <PostTitle>{frontmatter.title}</PostTitle>
+          <PostInfoSection>
+            <PostDate>{`${date.getFullYear()}.${date.getMonth()}.${date.getDate()}`}</PostDate>
+          </PostInfoSection>
+        </PostHeader>
+        <PostBody>{children}</PostBody>
+      </PostContainer>
+    </MDXProvider>
   )
 }
 

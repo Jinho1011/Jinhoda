@@ -2,7 +2,6 @@ import * as React from "react"
 import { Link, graphql, PageProps } from "gatsby"
 import styled from "styled-components"
 import Bio from "../components/bio"
-import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { Container } from "../components/styles"
 import Post from "../components/post"
@@ -28,29 +27,27 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
 
   if (posts.length === 0) {
     return (
-      <Layout>
+      <>
         <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
           gatsby-config.js).
         </p>
-      </Layout>
+      </>
     )
   }
 
   return (
-    <Layout>
-      <main>
-        <MainContainer>
-          <PostList>
-            {posts.map((post: Queries.IndexPageQuery["posts"]["nodes"][0]) => {
-              return <Post post={post} key={post.frontmatter.description} />
-            })}
-          </PostList>
-        </MainContainer>
-      </main>
-    </Layout>
+    <main>
+      <MainContainer>
+        <PostList>
+          {posts.map((post: Queries.IndexPageQuery["posts"]["nodes"][0]) => {
+            return <Post post={post} key={post.frontmatter.description} />
+          })}
+        </PostList>
+      </MainContainer>
+    </main>
   )
 }
 

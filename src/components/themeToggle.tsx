@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
+import DarkThemeContext from "../context/DarkTheme"
 import Moon from "../images/Moon"
 import Sun from "../images/Sun"
 
@@ -56,12 +57,9 @@ const ToggleLabel = styled.label`
   }
 `
 
-interface ThemeToggleProps {
-  isDarkMode: boolean
-  toggle: () => void
-}
+const themeToggle = () => {
+  const { isDarkMode, setIsDarkMode } = useContext(DarkThemeContext)
 
-const themeToggle = ({ isDarkMode, toggle }: ThemeToggleProps) => {
   return (
     <ToggleLabel className="toggle-wrapper" htmlFor="toggle">
       <div className={`toggle ${isDarkMode ? "enabled" : "disabled"}`}>
@@ -69,7 +67,12 @@ const themeToggle = ({ isDarkMode, toggle }: ThemeToggleProps) => {
           <Sun />
           <Moon />
         </div>
-        <input id="toggle" name="toggle" type="checkbox" onClick={toggle} />
+        <input
+          id="toggle"
+          name="toggle"
+          type="checkbox"
+          onClick={() => setIsDarkMode(!isDarkMode)}
+        />
       </div>
     </ToggleLabel>
   )

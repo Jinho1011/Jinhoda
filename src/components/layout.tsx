@@ -11,31 +11,15 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const [isDarkMode, setIsDarkMode] = useDarkMode()
-  const theme = isDarkMode ? darkTheme : lightTheme
-
-  const toggle = () => {
-    setIsDarkMode(prev => {
-      window.localStorage.setItem("color-mode", !prev ? "dark" : "light")
-      return !prev
-    })
-  }
-
   const data = useStaticQuery<Queries.LayoutComponentQuery>(LayoutQuery)
   const categories = data.categories.group.map(v => v.fieldValue)
 
   return (
-    <ThemeProvider theme={theme}>
-      <div style={{ backgroundColor: theme.color.background }}>
-        <Header
-          categories={categories}
-          isDarkMode={isDarkMode}
-          toggle={toggle}
-        />
-        {children}
-        <Footer />
-      </div>
-    </ThemeProvider>
+    <div>
+      <Header categories={categories} />
+      {children}
+      <Footer />
+    </div>
   )
 }
 

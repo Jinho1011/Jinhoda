@@ -26,11 +26,9 @@ const MenuContainer = styled.div`
 
 interface HeaderProps {
   categories: string[]
-  isDarkMode: boolean
-  toggle: any
 }
 
-const Header = ({ categories, isDarkMode, toggle }: HeaderProps) => {
+const Header = ({ categories }: HeaderProps) => {
   return (
     <NavContainer>
       <HeaderContainer>
@@ -58,7 +56,7 @@ const Header = ({ categories, isDarkMode, toggle }: HeaderProps) => {
               )
             })}
           </Buttons>
-          <ThemeToggle isDarkMode={isDarkMode} toggle={toggle} />
+          <ThemeToggle />
         </MenuContainer>
       </HeaderContainer>
     </NavContainer>

@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: Jinho1011/Jinhoda
   branch: master
 
@@ -17,11 +17,10 @@ collections:
     slug: "index"
     media_folder: ""
     public_folder: ""
-    path: "{{Category}}/{{ID}}"
+    path: "{{Category}}/{{Title}}"
     editor:
       preview: false
     fields:
-      - { label: "ID", name: "id", widget: "number" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
@@ -31,5 +30,10 @@ collections:
           widget: "select",
           options: ["개발", "일상"],
         }
-      - { label: "CoverImage", name: "featuredImage", widget: "image" }
+      - {
+          label: "CoverImage",
+          name: "featuredImage",
+          widget: "image",
+          required :false,
+        }
       - { label: "Body", name: "body", widget: markdown }

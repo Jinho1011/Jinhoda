@@ -98,21 +98,20 @@ interface PostProps {
 }
 
 const Post = ({ post }: PostProps) => {
-  const title = post.frontmatter.title
   const image = getImage(post.frontmatter.featuredImage)
 
   return (
     <List>
       <Link
-        to={`${post.frontmatter.category}/${post.frontmatter.id}`}
+        to={`${post.frontmatter.category}/${post.frontmatter.title}`}
         itemProp="url"
       >
         <Article itemScope itemType="http://schema.org/Article">
-          <CoverImage image={image} alt={title} />
+          <CoverImage image={image} alt={post.frontmatter.title} />
           <ContentContainer>
             <header>
               <h2>
-                <Title itemProp="headline">{title}</Title>
+                <Title itemProp="headline">{post.frontmatter.title}</Title>
               </h2>
             </header>
             <Section>

@@ -67,7 +67,6 @@ export const pageQuery = graphql`
         id
         excerpt
         frontmatter {
-          id
           title
           date(formatString: "MMMM DD, YYYY")
           description

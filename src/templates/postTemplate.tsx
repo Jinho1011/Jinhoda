@@ -1,6 +1,4 @@
-import React from "react"
 import { MDXProvider } from "@mdx-js/react"
-import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import {
   Blockquote,
@@ -34,7 +32,7 @@ interface PostTemplateProps {
 }
 
 const PostTemplate = ({ children, data }: PostTemplateProps) => {
-  const frontmatter = data.mdx.frontmatter
+  const frontmatter = data.mdx?.frontmatter
   const date = new Date(frontmatter.date)
 
   return (
@@ -67,7 +65,6 @@ export const query = graphql`
         category
         date
         description
-        id
         title
         featuredImage {
           childrenImageSharp {

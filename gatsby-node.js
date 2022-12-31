@@ -27,7 +27,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
           frontmatter {
             category
-            id
+            title
           }
         }
       }
@@ -56,7 +56,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           id: node.id,
         },
         // Slug defined with frontmatter in each MDX file.
-        path: `${node.frontmatter.category}/${node.frontmatter.id}`,
+        path: `${node.frontmatter.category}/${node.frontmatter.title}`,
       })
     })
   }

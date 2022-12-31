@@ -57,7 +57,7 @@ const ToggleLabel = styled.label`
   }
 `
 
-const themeToggle = () => {
+const ThemeToggle = () => {
   const { isDarkMode, setIsDarkMode } = useContext(DarkThemeContext)
 
   return (
@@ -78,4 +78,4 @@ const themeToggle = () => {
   )
 }
 
-export default themeToggle
+export default ThemeToggle

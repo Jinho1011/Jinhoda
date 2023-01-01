@@ -4,9 +4,7 @@ import styled from "styled-components"
 import Header from "./header"
 import Footer from "./footer"
 
-const LayoutContainer = styled.div`
-  background-color: ${({ theme }) => theme.color.background};
-`
+const LayoutContainer = styled.div``
 
 interface LayoutProps {
   children: React.ReactNode

@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   repo: Jinho1011/Jinhoda
-  branch: master
+  branch: main
 
 locale: "ko"
 

@@ -1,6 +1,9 @@
 import React from "react"
 import StyledThemeProvider from "./src/components/StyledThemeProvider"
+import ContextAPIProvider from "./src/context/ContextAPIProvider"
 
 export const wrapRootElement = ({ element }) => (
-  <StyledThemeProvider>{element}</StyledThemeProvider>
+  <ContextAPIProvider>
+    <StyledThemeProvider>{element}</StyledThemeProvider>{" "}
+  </ContextAPIProvider>
 )

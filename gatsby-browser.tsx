@@ -15,6 +15,6 @@ export const wrapPageElement = ({ element, props }) => {
 
 export const wrapRootElement = ({ element }) => (
   <ContextAPIProvider>
-    <StyledThemeProvider>{element}</StyledThemeProvider>
+    <StyledThemeProvider>{element}</StyledThemeProvider>{" "}
   </ContextAPIProvider>
 )

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useLayoutEffect } from "react"
 import { ThemeProvider } from "styled-components"
 import DarkThemeContext from "../context/DarkTheme"
 import { getIsDarkThemeInitial } from "../hooks/useDarkMode"
@@ -9,7 +9,7 @@ const StyledThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const { isDarkMode } = useContext(DarkThemeContext)
   const theme = isDarkMode ? darkTheme : lightTheme
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.body.style.backgroundColor = initialIsDarkMode
       ? "#18171C"
       : "#ffffff"

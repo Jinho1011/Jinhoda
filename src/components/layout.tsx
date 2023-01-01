@@ -1,10 +1,12 @@
 import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { ThemeProvider } from "styled-components"
+import styled from "styled-components"
 import Header from "./header"
 import Footer from "./footer"
-import { darkTheme, lightTheme } from "../styles/theme"
-import useDarkMode from "../hooks/useDarkMode"
+
+const LayoutContainer = styled.div`
+  background-color: ${({ theme }) => theme.color.background};
+`
 
 interface LayoutProps {
   children: React.ReactNode
@@ -15,11 +17,11 @@ const Layout = ({ children }: LayoutProps) => {
   const categories = data.categories.group.map(v => v.fieldValue)
 
   return (
-    <div>
+    <LayoutContainer>
       <Header categories={categories} />
       {children}
       <Footer />
-    </div>
+    </LayoutContainer>
   )
 }
 

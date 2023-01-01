@@ -5,7 +5,7 @@ import ContextAPIProvider from "./src/context/ContextAPIProvider"
 
 export const wrapRootElement = ({ element }) => (
   <ContextAPIProvider>
-    <StyledThemeProvider>{element}</StyledThemeProvider>{" "}
+    <StyledThemeProvider>{element}</StyledThemeProvider>
   </ContextAPIProvider>
 )
 

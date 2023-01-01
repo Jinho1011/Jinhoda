@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react"
+import React, { useCallback, useState } from "react"
 import { getIsDarkThemeInitial } from "../hooks/useDarkMode"
 import DarkThemeContext from "./DarkTheme"
 

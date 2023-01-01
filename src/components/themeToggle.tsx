@@ -60,6 +60,11 @@ const ToggleLabel = styled.label`
 const ThemeToggle = () => {
   const { isDarkMode, setIsDarkMode } = useContext(DarkThemeContext)
 
+  const onToggleTheme = () => {
+    window.localStorage.setItem("color-mode", isDarkMode ? "light" : "dark")
+    setIsDarkMode(!isDarkMode)
+  }
+
   return (
     <ToggleLabel className="toggle-wrapper" htmlFor="toggle">
       <div className={`toggle ${isDarkMode ? "enabled" : "disabled"}`}>
@@ -71,7 +76,7 @@ const ThemeToggle = () => {
           id="toggle"
           name="toggle"
           type="checkbox"
-          onClick={() => setIsDarkMode(!isDarkMode)}
+          onClick={onToggleTheme}
         />
       </div>
     </ToggleLabel>

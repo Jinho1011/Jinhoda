@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { StaticImage } from "gatsby-plugin-image"
 import { Button, Buttons, ButtonText, Container } from "./styles"
 import { Link } from "gatsby"
-import ThemeToggle from "./ThemeToggle"
+import ThemeToggle from "./themeToggle"
 
 const NavContainer = styled.nav`
   height: 60px;

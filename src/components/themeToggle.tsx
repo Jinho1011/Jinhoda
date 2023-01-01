@@ -61,6 +61,7 @@ const ThemeToggle = () => {
   const { isDarkMode, setIsDarkMode } = useContext(DarkThemeContext)
 
   const onToggleTheme = () => {
+    // document.body.style.backgroundColor = isDarkMode ? "light" : "dark"
     window.localStorage.setItem("color-mode", isDarkMode ? "light" : "dark")
     setIsDarkMode(!isDarkMode)
   }

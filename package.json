@@ -20,7 +20,7 @@
     "gatsby-plugin-mdx-frontmatter": "^0.0.4",
     "gatsby-plugin-netlify-cms": "^7.2.0",
     "gatsby-plugin-sharp": "^5.2.0",
-    "gatsby-plugin-styled-components": "^6.2.0",
+    "gatsby-plugin-styled-components": "^6.3.0",
     "gatsby-remark-images": "^7.2.0",
     "gatsby-remark-prismjs": "^7.2.0",
     "gatsby-remark-responsive-iframe": "^6.2.0",

@@ -161,6 +161,12 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`, // 커스텀 모듈 설정
       },
     },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+      },
+    },
   ],
   graphqlTypegen: true,
 }

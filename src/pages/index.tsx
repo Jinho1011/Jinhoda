@@ -10,6 +10,7 @@ const MainContainer = styled(Container)`
   display: flex;
   justify-content: center;
   max-width: 980px;
+  height: 100vh;
 `
 
 const PostList = styled.ul`

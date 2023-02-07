@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import styled from "styled-components"
 
 const Section = styled.section`
   p {

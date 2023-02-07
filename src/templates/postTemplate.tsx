@@ -1,5 +1,7 @@
 import { MDXProvider } from "@mdx-js/react"
 import { graphql } from "gatsby"
+import { getImage } from "gatsby-plugin-image"
+
 import {
   Blockquote,
   H1,
@@ -15,7 +17,6 @@ import {
   PostInfoSection,
   PostTitle,
 } from "./styles"
-import { getImage } from "gatsby-plugin-image"
 
 const components = {
   h1: H1,

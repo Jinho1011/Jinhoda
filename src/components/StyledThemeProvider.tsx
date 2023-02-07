@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useLayoutEffect, useState } from "react"
 import { DefaultTheme, ThemeProvider } from "styled-components"
+
 import DarkThemeContext from "../context/DarkTheme"
 import { getIsDarkThemeInitial } from "../hooks/useDarkMode"
 import { darkTheme, lightTheme } from "../styles/theme"

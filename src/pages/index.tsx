@@ -1,10 +1,11 @@
 import * as React from "react"
-import { Link, graphql, PageProps } from "gatsby"
+import { graphql } from "gatsby"
 import styled from "styled-components"
+
 import Bio from "../components/bio"
+import Post from "../components/post"
 import Seo from "../components/seo"
 import { Container } from "../components/styles"
-import Post from "../components/post"
 
 const MainContainer = styled(Container)`
   display: flex;
@@ -23,7 +24,7 @@ interface BlogIndexProps {
   location: Location
 }
 
-const BlogIndex = ({ data, location }: BlogIndexProps) => {
+const BlogIndex = ({ data }: BlogIndexProps) => {
   const posts = data.posts.nodes
 
   if (posts.length === 0) {

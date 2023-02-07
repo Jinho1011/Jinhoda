@@ -1,8 +1,9 @@
 import React from "react"
-import styled from "styled-components"
-import { StaticImage } from "gatsby-plugin-image"
-import { Button, Buttons, ButtonText, Container } from "./styles"
 import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
+import styled from "styled-components"
+
+import { Button, Buttons, ButtonText, Container } from "./styles"
 import ThemeToggle from "./themeToggle"
 
 const NavContainer = styled.nav`

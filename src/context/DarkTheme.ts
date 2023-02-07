@@ -1,4 +1,5 @@
 import { createContext } from "react"
+
 import { getIsDarkThemeInitial } from "../hooks/useDarkMode"
 
 interface ThemeContextTypes {

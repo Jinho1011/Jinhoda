@@ -1,5 +1,7 @@
 import React, { useCallback, useState } from "react"
+
 import { getIsDarkThemeInitial } from "../hooks/useDarkMode"
+
 import DarkThemeContext from "./DarkTheme"
 
 const ContextAPIProvider = ({ children }: { children: React.ReactNode }) => {

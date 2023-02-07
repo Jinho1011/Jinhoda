@@ -1,8 +1,9 @@
 import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
-import Header from "./header"
+
 import Footer from "./footer"
+import Header from "./header"
 
 const LayoutContainer = styled.div`
   background-color: ${({ theme }) => theme.color.background};

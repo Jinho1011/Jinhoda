@@ -5,21 +5,14 @@
     "lib": ["esnext", "dom"],
     "jsx": "react-jsx",
     "esModuleInterop": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@images/*": ["./src/assets/images"],
-      "@styles/*": ["./src/assets/styles"],
-      "@components/*": ["./src/shared/components"],
-      "@hooks/*": ["./src/shared/hooks"]
+      "@/*": ["src/*"],
+      "@images/*": ["src/assets/images/*"],
+      "@styles/*": ["src/assets/styles/*"],
+      "@components/*": ["src/shared/components/*"]
     }
   },
-  "include": [
-    "./src/**/*",
-    "gatsby-node.js",
-    "./gatsby-config.ts",
-    "./plugins/**/*",
-    "src/pages",
-    "src/assets/images",
-    "cms"
-  ]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

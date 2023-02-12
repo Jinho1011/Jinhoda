@@ -19,12 +19,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-image`,
     {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        path: `${__dirname}/content/posts`,
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/posts`,
@@ -67,7 +61,6 @@ module.exports = {
       },
       resolve: "gatsby-plugin-mdx",
     },
-
     {
       resolve: `gatsby-transformer-remark`,
       options: {

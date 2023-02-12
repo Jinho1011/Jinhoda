@@ -72,6 +72,11 @@ const Article = styled.article`
     -ms-transform: translate3D(0, -3%, 0);
     transform: translate3D(0, -3%, 0);
   }
+
+  .gatsby-image-wrapper {
+    position: relative;
+    z-index: 0;
+  }
 `
 
 const List = styled.li`

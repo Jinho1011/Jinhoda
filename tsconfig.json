@@ -4,7 +4,14 @@
     "module": "commonjs",
     "lib": ["esnext", "dom"],
     "jsx": "react-jsx",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@images/*": ["./src/assets/images"],
+      "@styles/*": ["./src/assets/styles"],
+      "@components/*": ["./src/shared/components"],
+      "@hooks/*": ["./src/shared/hooks"]
+    }
   },
   "include": [
     "./src/**/*",

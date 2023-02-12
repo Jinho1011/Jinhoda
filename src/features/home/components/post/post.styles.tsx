@@ -1,6 +1,4 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 
 const Section = styled.section`
@@ -92,42 +90,4 @@ const ContentContainer = styled.div`
 const Small = styled.small`
   color: ${({ theme }) => theme.color.subText};
 `
-
-interface PostProps {
-  post: Queries.IndexPageQuery["posts"]["nodes"][0]
-}
-
-const Post = ({ post }: PostProps) => {
-  const image = getImage(post.frontmatter.featuredImage)
-
-  return (
-    <List>
-      <Link
-        to={`${post.frontmatter.category}/${post.frontmatter.title}`}
-        itemProp="url"
-      >
-        <Article itemScope itemType="http://schema.org/Article">
-          <CoverImage image={image} alt={post.frontmatter.title} />
-          <ContentContainer>
-            <header>
-              <h2>
-                <Title itemProp="headline">{post.frontmatter.title}</Title>
-              </h2>
-            </header>
-            <Section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: post.frontmatter.description,
-                }}
-                itemProp="description"
-              />
-            </Section>
-            <Small>{post.frontmatter.date}</Small>
-          </ContentContainer>
-        </Article>
-      </Link>
-    </List>
-  )
-}
-
-export default Post
+export { Section, Title, CoverImage, Article, List, ContentContainer, Small }

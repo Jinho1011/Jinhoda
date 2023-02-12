@@ -1,7 +1,8 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
 import { graphql } from "gatsby"
-import { getImage } from "gatsby-plugin-image"
+
+import Post from "@/features/post/components/Post"
 
 import {
   Blockquote,
@@ -10,14 +11,7 @@ import {
   H3,
   Img,
   P,
-  PostBody,
-  PostContainer,
-  PostDate,
-  PostFeaturedImage,
-  PostHeader,
-  PostInfoSection,
-  PostTitle,
-} from "./styles"
+} from "../../features/post/components/Post.styles"
 
 const components = {
   h1: H1,
@@ -35,23 +29,10 @@ interface PostTemplateProps {
 
 const PostTemplate = ({ children, data }: PostTemplateProps) => {
   const frontmatter = data.mdx?.frontmatter
-  const date = new Date(frontmatter.date)
 
   return (
     <MDXProvider components={components}>
-      <PostContainer>
-        <PostHeader>
-          <PostFeaturedImage
-            alt={""}
-            image={getImage(frontmatter.featuredImage.childrenImageSharp[0])}
-          />
-          <PostTitle>{frontmatter.title}</PostTitle>
-          <PostInfoSection>
-            <PostDate>{`${date.getFullYear()}.${date.getMonth()}.${date.getDate()}`}</PostDate>
-          </PostInfoSection>
-        </PostHeader>
-        <PostBody>{children}</PostBody>
-      </PostContainer>
+      <Post frontmatter={frontmatter}>{children}</Post>
     </MDXProvider>
   )
 }

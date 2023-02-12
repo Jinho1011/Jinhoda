@@ -11,6 +11,8 @@
     "gatsby-node.js",
     "./gatsby-config.ts",
     "./plugins/**/*",
-    "src/pages"
+    "src/pages",
+    "src/images",
+    "cms"
   ]
 }

@@ -1,8 +1,4 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
+/* eslint-disable no-undef */
 
 /**
  * @type {import('gatsby').GatsbyConfig}
@@ -157,7 +153,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-netlify-cms`,
       options: {
-        modulePath: `${__dirname}/src/cms/cms.js`, // 커스텀 모듈 설정
+        modulePath: `${__dirname}/cms/cms.js`, // 커스텀 모듈 설정
       },
     },
     {

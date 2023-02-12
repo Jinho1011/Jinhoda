@@ -1,29 +1,16 @@
 import React from "react"
+import { Button, Buttons, ButtonText } from "@styles/styles"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import styled from "styled-components"
 
-import { Button, Buttons, ButtonText, Container } from "./styles"
-import ThemeToggle from "./themeToggle"
+import ThemeToggle from "../themeToggle"
 
-const NavContainer = styled.nav`
-  height: 60px;
-`
-
-const HeaderContainer = styled(Container)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-`
-
-const LogoContainer = styled.div``
-
-const MenuContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 12px;
-`
+import {
+  HeaderContainer,
+  LogoContainer,
+  MenuContainer,
+  NavContainer,
+} from "./header.styles"
 
 interface HeaderProps {
   categories: string[]
@@ -37,7 +24,7 @@ const Header = ({ categories }: HeaderProps) => {
           <Link to="/">
             <StaticImage
               className="j-logo"
-              src="../../assets/images/jinhoda.png"
+              src="../../../assets/images/jinhoda.png"
               placeholder="none"
               height={20}
               quality={100}

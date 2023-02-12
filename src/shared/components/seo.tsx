@@ -6,7 +6,7 @@
  */
 
 import * as React from "react"
-import { graphql,useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 interface SeoProps {
   title: string

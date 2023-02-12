@@ -7,15 +7,15 @@ import DarkThemeContext from "./DarkTheme"
 const ContextAPIProvider = ({ children }: { children: React.ReactNode }) => {
   const [isDarkMode, setIsDarkMode] = useState(getIsDarkThemeInitial())
 
-  const setIsDarkModeHandler = useCallback((value: boolean) => {
-    setIsDarkMode(value)
+  const toggleDarkMode = useCallback(() => {
+    setIsDarkMode(prev => !prev)
   }, [])
 
   return (
     <DarkThemeContext.Provider
       value={{
         isDarkMode: isDarkMode,
-        setIsDarkMode: setIsDarkModeHandler,
+        toggleDarkMode: toggleDarkMode,
       }}
     >
       {children}

@@ -12,7 +12,7 @@
     "./gatsby-config.ts",
     "./plugins/**/*",
     "src/pages",
-    "src/images",
+    "src/assets/images",
     "cms"
   ]
 }

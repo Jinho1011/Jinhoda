@@ -3,7 +3,8 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 
-import { Button, Buttons, ButtonText, Container } from "./styles"
+import { Button, Buttons, ButtonText, Container } from "../../components/styles"
+
 import ThemeToggle from "./themeToggle"
 
 const NavContainer = styled.nav`
@@ -37,7 +38,7 @@ const Header = ({ categories }: HeaderProps) => {
           <Link to="/">
             <StaticImage
               className="j-logo"
-              src="../images/jinhoda.png"
+              src="../../assets/images/jinhoda.png"
               placeholder="none"
               height={20}
               quality={100}

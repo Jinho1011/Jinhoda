@@ -6,7 +6,7 @@
  */
 
 import * as React from "react"
-import { graphql,useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 const Bio = () => {
@@ -33,7 +33,7 @@ const Bio = () => {
         className="bio-avatar"
         layout="fixed"
         formats={["auto", "webp", "avif"]}
-        src="../images/profile-pic.png"
+        src="../../../assets/images/profile-pic.png"
         width={50}
         height={50}
         quality={95}

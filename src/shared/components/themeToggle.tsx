@@ -1,9 +1,9 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 
+import Moon from "../../assets/images/Moon"
+import Sun from "../../assets/images/Sun"
 import DarkThemeContext from "../context/DarkTheme"
-import Moon from "../images/Moon"
-import Sun from "../images/Sun"
 
 const ToggleLabel = styled.label`
   display: block;
@@ -59,11 +59,11 @@ const ToggleLabel = styled.label`
 `
 
 const ThemeToggle = () => {
-  const { isDarkMode, setIsDarkMode } = useContext(DarkThemeContext)
+  const { isDarkMode, toggleDarkMode } = useContext(DarkThemeContext)
 
   const onToggleTheme = () => {
     window.localStorage.setItem("color-mode", isDarkMode ? "light" : "dark")
-    setIsDarkMode(!isDarkMode)
+    toggleDarkMode()
   }
 
   return (

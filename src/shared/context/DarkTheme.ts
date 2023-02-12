@@ -1,15 +1,16 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { createContext } from "react"
 
 import { getIsDarkThemeInitial } from "../hooks/useDarkMode"
 
 interface ThemeContextTypes {
   isDarkMode: boolean
-  setIsDarkMode: (value: boolean) => void
+  toggleDarkMode: () => void
 }
 
 const initialState: ThemeContextTypes = {
   isDarkMode: getIsDarkThemeInitial(),
-  setIsDarkMode: () => {},
+  toggleDarkMode: () => {},
 }
 
 const DarkThemeContext = createContext<ThemeContextTypes>(initialState)

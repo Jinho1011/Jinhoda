@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-undef */
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -49,7 +51,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // `context` is available in the template as a prop and as a variable in GraphQL
 
   if (posts.length > 0) {
-    posts.forEach((node, index) => {
+    posts.forEach(node => {
       createPage({
         component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
         context: {

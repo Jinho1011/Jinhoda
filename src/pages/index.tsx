@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 import { Container } from "../assets/styles/styles"
 import Bio from "../features/home/components/bio"
-import Post from "../features/home/components/post"
+import PostPreview from "../features/home/components/PostPreview"
 import Seo from "../shared/components/seo"
 
 const MainContainer = styled(Container)`
@@ -45,7 +45,9 @@ const BlogIndex = ({ data }: BlogIndexProps) => {
       <MainContainer>
         <PostList>
           {posts.map((post: Queries.IndexPageQuery["posts"]["nodes"][0]) => {
-            return <Post post={post} key={post.frontmatter.description} />
+            return (
+              <PostPreview post={post} key={post.frontmatter.description} />
+            )
           })}
         </PostList>
       </MainContainer>

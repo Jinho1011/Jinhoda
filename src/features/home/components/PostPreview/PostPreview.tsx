@@ -10,7 +10,7 @@ import {
   Section,
   Small,
   Title,
-} from "./post.styles"
+} from "./PostPreview.styles"
 
 interface PostProps {
   post: Queries.IndexPageQuery["posts"]["nodes"][0]

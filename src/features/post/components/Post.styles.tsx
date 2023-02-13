@@ -31,6 +31,18 @@ const PostContainer = styled.div`
     border: 1px solid rgba(2, 32, 71, 0.05);
     border-radius: 12px;
   }
+
+  h1 {
+    color: ${({ theme }) => theme.color.heading};
+  }
+
+  h2 {
+    color: ${({ theme }) => theme.color.subHeading};
+  }
+
+  p {
+    color: ${({ theme }) => theme.color.text};
+  }
 `
 
 const PostHeader = styled.header``
@@ -38,7 +50,7 @@ const PostHeader = styled.header``
 const PostTitle = styled.h1`
   margin-bottom: 0;
   font-size: 48px;
-  font-weight: 500;
+  font-weight: 800;
   line-height: 1.25;
   color: ${({ theme }) => theme.color.subHeading};
   word-break: keep-all;

@@ -162,6 +162,7 @@ module.exports = {
         forceFullSync: true,
       },
     },
+    `gatsby-plugin-netlify`,
   ],
   graphqlTypegen: true,
 }

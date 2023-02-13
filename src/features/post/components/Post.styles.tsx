@@ -1,70 +1,18 @@
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 
-const H1 = styled.h1`
-  font-size: 1.5em;
-  margin-block-start: 1.4em;
-  margin-block-end: 1.2;
-  line-height: 1.7;
-  color: ${({ theme }) => theme.color.heading};
-  word-break: keep-all;
-  overflow-wrap: break-word;
+const ImageContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
-const H2 = styled.h2`
-  font-size: 1.3em;
-  margin-block-start: 1.2em;
-  margin-block-end: 1em;
-  line-height: 1.7;
-  color: ${({ theme }) => theme.color.subHeading};
-  word-break: keep-all;
-  overflow-wrap: break-word;
+const ImageDescription = styled.span`
+  color: ${({ theme }) => theme.color.subText};
+  padding: 10px 0 0;
 `
-
-const H3 = styled.h3`
-  font-size: 1.2em;
-  margin-block-start: 0.9em;
-  margin-block-end: 0.9em;
-  line-height: 1.7;
-  color: ${({ theme }) => theme.color.text};
-  word-break: keep-all;
-  overflow-wrap: break-word;
-`
-
-const P = styled.p`
-  margin: 1em 0;
-  font-size: 18px;
-  line-height: 1.7;
-  color: ${({ theme }) => theme.color.text};
-  font-size: 18px;
-  word-break: keep-all;
-  overflow-wrap: break-word;
-`
-
-const Blockquote = styled.blockquote`
-  background-color: ${({ theme }) => theme.color.blockquote};
-  margin: 0;
-  margin: 24px 0;
-  border-radius: 12px;
-  /* box-shadow: rgb(0 0 33 / 7%) 0px 16px 22.4px 4.8px,
-    rgb(0 0 33 / 5%) 0px 3.2px 16px 0px, rgb(0 0 33 / 7%) 0px 0px 1px 0px; */
-
-  p:first-child {
-    padding-top: 24px;
-  }
-
-  p:last-child {
-    padding-bottom: 24px;
-  }
-
-  p {
-    padding: 8px 30px;
-    margin: 0;
-    color: ${({ theme }) => theme.color.subText};
-  }
-`
-
-const Img = styled.img``
 
 const PostContainer = styled.div`
   max-width: 700px;
@@ -115,12 +63,8 @@ const PostFeaturedImage = styled(GatsbyImage)`
 const PostBody = styled.div``
 
 export {
-  H1,
-  H2,
-  H3,
-  P,
-  Blockquote,
-  Img,
+  ImageContainer,
+  ImageDescription,
   PostContainer,
   PostHeader,
   PostTitle,

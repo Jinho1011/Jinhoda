@@ -1,5 +1,4 @@
 import React from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 import {
@@ -10,6 +9,7 @@ import {
   PostInfoSection,
   PostTitle,
 } from "./Post.styles"
+import PostImage from "./PostImage"
 
 interface PostProps {
   post: Queries.PostTemplateQuery["contentfulPost"]
@@ -18,18 +18,11 @@ interface PostProps {
 const options = {
   renderNode: {
     "embedded-asset-block": node => {
-      const { gatsbyImageData } = node.data.target
+      const { gatsbyImageData, description } = node.data.target
       if (!gatsbyImageData) {
-        // asset is not an image
         return null
       }
-      return (
-        <GatsbyImage
-          image={gatsbyImageData}
-          alt={""}
-          style={{ objectFit: "cover" }}
-        />
-      )
+      return <PostImage image={gatsbyImageData} description={description} />
     },
   },
 }

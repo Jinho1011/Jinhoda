@@ -4381,7 +4381,7 @@ type PostTemplateQueryVariables = Exact<{
 }>;
 
 
-type PostTemplateQuery = { readonly contentfulPost: { readonly id: string, readonly title: string | null, readonly createdAt: string | null, readonly description: { readonly description: string | null } | null, readonly body: { readonly raw: string | null, readonly references: ReadonlyArray<{ readonly __typename: 'ContentfulAsset', readonly contentful_id: string, readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null> | null } | null, readonly category: { readonly type: string | null } | null } | null };
+type PostTemplateQuery = { readonly contentfulPost: { readonly id: string, readonly title: string | null, readonly createdAt: string | null, readonly description: { readonly description: string | null } | null, readonly body: { readonly raw: string | null, readonly references: ReadonlyArray<{ readonly __typename: 'ContentfulAsset', readonly title: string | null, readonly description: string | null, readonly contentful_id: string, readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null> | null } | null, readonly category: { readonly type: string | null } | null } | null };
 
 
 }

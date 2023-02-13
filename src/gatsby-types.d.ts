@@ -725,6 +725,7 @@ type ContentfulPost = ContentfulEntry & ContentfulReference & Node & {
   readonly parent: Maybe<Node>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly sys: Maybe<ContentfulPostSys>;
+  readonly thumbnail: Maybe<ContentfulAsset>;
   readonly title: Maybe<Scalars['String']>;
   readonly updatedAt: Maybe<Scalars['Date']>;
 };
@@ -836,6 +837,7 @@ type ContentfulPostFieldSelector = {
   readonly parent: InputMaybe<NodeFieldSelector>;
   readonly spaceId: InputMaybe<FieldSelectorEnum>;
   readonly sys: InputMaybe<ContentfulPostSysFieldSelector>;
+  readonly thumbnail: InputMaybe<ContentfulAssetFieldSelector>;
   readonly title: InputMaybe<FieldSelectorEnum>;
   readonly updatedAt: InputMaybe<FieldSelectorEnum>;
 };
@@ -858,6 +860,7 @@ type ContentfulPostFilterInput = {
   readonly parent: InputMaybe<NodeFilterInput>;
   readonly spaceId: InputMaybe<StringQueryOperatorInput>;
   readonly sys: InputMaybe<ContentfulPostSysFilterInput>;
+  readonly thumbnail: InputMaybe<ContentfulAssetFilterInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
@@ -921,6 +924,7 @@ type ContentfulPostSortInput = {
   readonly parent: InputMaybe<NodeSortInput>;
   readonly spaceId: InputMaybe<SortOrderEnum>;
   readonly sys: InputMaybe<ContentfulPostSysSortInput>;
+  readonly thumbnail: InputMaybe<ContentfulAssetSortInput>;
   readonly title: InputMaybe<SortOrderEnum>;
   readonly updatedAt: InputMaybe<SortOrderEnum>;
 };
@@ -2896,6 +2900,7 @@ type Query_contentfulPostArgs = {
   parent: InputMaybe<NodeFilterInput>;
   spaceId: InputMaybe<StringQueryOperatorInput>;
   sys: InputMaybe<ContentfulPostSysFilterInput>;
+  thumbnail: InputMaybe<ContentfulAssetFilterInput>;
   title: InputMaybe<StringQueryOperatorInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
@@ -4381,7 +4386,7 @@ type PostTemplateQueryVariables = Exact<{
 }>;
 
 
-type PostTemplateQuery = { readonly contentfulPost: { readonly id: string, readonly title: string | null, readonly createdAt: string | null, readonly description: { readonly description: string | null } | null, readonly body: { readonly raw: string | null, readonly references: ReadonlyArray<{ readonly __typename: 'ContentfulAsset', readonly title: string | null, readonly description: string | null, readonly contentful_id: string, readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null> | null } | null, readonly category: { readonly type: string | null } | null } | null };
+type PostTemplateQuery = { readonly contentfulPost: { readonly id: string, readonly title: string | null, readonly createdAt: string | null, readonly thumbnail: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly description: string | null } | null, readonly body: { readonly raw: string | null, readonly references: ReadonlyArray<{ readonly __typename: 'ContentfulAsset', readonly title: string | null, readonly description: string | null, readonly contentful_id: string, readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null> | null } | null, readonly category: { readonly type: string | null } | null } | null };
 
 
 }

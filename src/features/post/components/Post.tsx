@@ -1,10 +1,12 @@
 import React from "react"
+import { getImage } from "gatsby-plugin-image"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 import {
   PostBody,
   PostContainer,
   PostDate,
+  PostFeaturedImage,
   PostHeader,
   PostInfoSection,
   PostTitle,
@@ -33,13 +35,18 @@ const Post = ({ post }: PostProps) => {
   return (
     <PostContainer>
       <PostHeader>
-        {/* <PostFeaturedImage
-          alt={""}
-          image={getImage(post.body.references[0].gatsbyImageData)}
-        /> */}
+        {post.thumbnail && (
+          <PostFeaturedImage
+            alt={""}
+            image={getImage(post.thumbnail.gatsbyImageData)}
+            imgStyle={{ borderRadius: 12 }}
+          />
+        )}
         <PostTitle>{post.title}</PostTitle>
         <PostInfoSection>
-          <PostDate>{`${date.getFullYear()}.${date.getMonth()}.${date.getDate()}`}</PostDate>
+          <PostDate>{`${
+            post.category.type
+          }ㆍ${date.getFullYear()}.${date.getMonth()}.${date.getDate()}`}</PostDate>
         </PostInfoSection>
       </PostHeader>
       <PostBody>

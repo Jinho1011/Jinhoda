@@ -19,6 +19,9 @@ export const postQuery = graphql`
     contentfulPost(id: { eq: $id }) {
       id
       title
+      thumbnail {
+        gatsbyImageData
+      }
       description {
         description
       }

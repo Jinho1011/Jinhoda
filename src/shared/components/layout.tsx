@@ -2,12 +2,12 @@ import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 
+import GlobalStyle from "@/assets/styles/GlobalStyle"
+
 import Header from "./header/header"
 import Footer from "./footer"
 
-const LayoutContainer = styled.div`
-  background-color: ${({ theme }) => theme.color.background};
-`
+const LayoutContainer = styled.div``
 
 interface LayoutProps {
   children: React.ReactNode
@@ -18,11 +18,14 @@ const Layout = ({ children }: LayoutProps) => {
   const categories = data.allContentfulPostCategoryJsonNode.nodes
 
   return (
-    <LayoutContainer>
-      <Header categories={categories} />
-      {children}
-      <Footer />
-    </LayoutContainer>
+    <>
+      <GlobalStyle />
+      <LayoutContainer>
+        <Header categories={categories} />
+        {children}
+        <Footer />
+      </LayoutContainer>
+    </>
   )
 }
 

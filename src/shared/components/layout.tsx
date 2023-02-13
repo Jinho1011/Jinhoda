@@ -15,7 +15,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const data = useStaticQuery<Queries.LayoutComponentQuery>(LayoutQuery)
-  const categories = data.categories.group.map(v => v.fieldValue)
+  const categories = data.allContentfulPostCategoryJsonNode.nodes
 
   return (
     <LayoutContainer>
@@ -35,10 +35,9 @@ export const LayoutQuery = graphql`
         title
       }
     }
-    categories: allMdx {
-      group(field: { frontmatter: { category: SELECT } }) {
-        fieldValue
-        totalCount
+    allContentfulPostCategoryJsonNode {
+      nodes {
+        type
       }
     }
   }

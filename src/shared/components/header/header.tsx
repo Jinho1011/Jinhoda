@@ -13,7 +13,9 @@ import {
 } from "./header.styles"
 
 interface HeaderProps {
-  categories: string[]
+  categories: readonly {
+    readonly type: string
+  }[]
 }
 
 const Header = ({ categories }: HeaderProps) => {
@@ -36,9 +38,9 @@ const Header = ({ categories }: HeaderProps) => {
           <Buttons>
             {categories.map(category => {
               return (
-                <Link to={`/categories/${category}`} key={category}>
+                <Link to={`/categories/${category}`} key={category.type}>
                   <Button>
-                    <ButtonText>{category}</ButtonText>
+                    <ButtonText>{category.type}</ButtonText>
                   </Button>
                 </Link>
               )

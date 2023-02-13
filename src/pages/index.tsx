@@ -25,7 +25,7 @@ interface BlogIndexProps {
 }
 
 const BlogIndex = ({ data }: BlogIndexProps) => {
-  const posts = data.posts.nodes
+  const posts = data.allContentfulPost.nodes
 
   if (posts.length === 0) {
     return (
@@ -44,11 +44,11 @@ const BlogIndex = ({ data }: BlogIndexProps) => {
     <main>
       <MainContainer>
         <PostList>
-          {posts.map((post: Queries.IndexPageQuery["posts"]["nodes"][0]) => {
-            return (
-              <PostPreview post={post} key={post.frontmatter.description} />
-            )
-          })}
+          {posts.map(
+            (post: Queries.IndexPageQuery["allContentfulPost"]["nodes"][0]) => {
+              return <PostPreview post={post} key={post.id} />
+            }
+          )}
         </PostList>
       </MainContainer>
     </main>
@@ -66,19 +66,20 @@ export const Head = () => <Seo title="All posts" />
 
 export const pageQuery = graphql`
   query IndexPage {
-    posts: allMdx(sort: { frontmatter: { date: DESC } }) {
+    allContentfulPost(sort: { date: DESC }) {
       nodes {
         id
-        excerpt
-        frontmatter {
-          title
-          date(formatString: "MMMM DD, YYYY")
+        title
+        createdAt
+        category {
+          type
+        }
+        description {
           description
-          category
-          featuredImage {
-            childImageSharp {
-              gatsbyImageData(width: 1600)
-            }
+        }
+        body {
+          references {
+            gatsbyImageData(width: 1200)
           }
         }
       }

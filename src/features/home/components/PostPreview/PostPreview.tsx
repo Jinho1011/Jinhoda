@@ -13,35 +13,32 @@ import {
 } from "./PostPreview.styles"
 
 interface PostProps {
-  post: Queries.IndexPageQuery["posts"]["nodes"][0]
+  post: Queries.IndexPageQuery["allContentfulPost"]["nodes"][0]
 }
 
 const Post = ({ post }: PostProps) => {
-  const image = getImage(post.frontmatter.featuredImage)
+  const image = getImage(post.body.references[0]?.gatsbyImageData)
 
   return (
     <List>
-      <Link
-        to={`${post.frontmatter.category}/${post.frontmatter.title}`}
-        itemProp="url"
-      >
+      <Link to={`${post.category.type}/${post.title}`} itemProp="url">
         <Article itemScope itemType="http://schema.org/Article">
-          <CoverImage image={image} alt={post.frontmatter.title} />
+          <CoverImage image={image} alt={post.title} />
           <ContentContainer>
             <header>
               <h2>
-                <Title itemProp="headline">{post.frontmatter.title}</Title>
+                <Title itemProp="headline">{post.title}</Title>
               </h2>
             </header>
             <Section>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: post.frontmatter.description,
+                  __html: post.description.description,
                 }}
                 itemProp="description"
               />
             </Section>
-            <Small>{post.frontmatter.date}</Small>
+            <Small>{post.createdAt}</Small>
           </ContentContainer>
         </Article>
       </Link>

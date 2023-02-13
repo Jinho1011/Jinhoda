@@ -1,13 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
- */
 
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -22,76 +16,39 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   })
 }
 
-// Define the template for blog post
-const postTemplate = path.resolve(`./src/shared/templates/postTemplate.tsx`)
-
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
+  const postTemplate = path.resolve(`./src/shared/templates/postTemplate.tsx`)
 
-  // Get all markdown blog posts sorted by date
   const result = await graphql(`
-    query PostPages {
-      allMdx {
+    {
+      allContentfulPost {
         nodes {
           id
-          internal {
-            contentFilePath
-          }
-          frontmatter {
-            category
-            title
+          title
+          category {
+            type
           }
         }
       }
     }
   `)
 
-  if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
-      result.errors
-    )
-    return
-  }
+  const contentfulPosts = result.data.allContentfulPost.nodes
 
-  const posts = result.data.allMdx.nodes
-
-  // Create blog posts pages
-  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
-  // `context` is available in the template as a prop and as a variable in GraphQL
-
-  if (posts.length > 0) {
-    posts.forEach(node => {
-      createPage({
-        component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
-        context: {
-          id: node.id,
-        },
-        // Slug defined with frontmatter in each MDX file.
-        path: `${node.frontmatter.category}/${node.frontmatter.title}`,
-      })
+  contentfulPosts.forEach(post => {
+    createPage({
+      path: `${post.category.type}/${post.title}`,
+      component: postTemplate,
+      context: {
+        id: post.id,
+        title: post.title,
+      },
     })
-  }
-}
-
-/**
- * @type {import('gatsby').GatsbyNode['onCreateNode']}
- */
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
-
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
-  }
+  })
 }
 
 /**
@@ -120,19 +77,6 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type Social {
       twitter: String
-    }
-
-    type MarkdownRemark implements Node {
-      frontmatter: Frontmatter
-      fields: Fields
-    }
-
-    type Frontmatter {
-      title: String
-      description: String
-      date: Date @dateformat
-      category: String
-      featuredImage: String
     }
 
     type Fields {

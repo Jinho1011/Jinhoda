@@ -1,37 +1,57 @@
 import React from "react"
-import { getImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 import {
   PostBody,
   PostContainer,
   PostDate,
-  PostFeaturedImage,
   PostHeader,
   PostInfoSection,
   PostTitle,
 } from "./Post.styles"
 
 interface PostProps {
-  frontmatter: Queries.PostTemplateQuery["mdx"]["frontmatter"]
-  children: JSX.Element
+  post: Queries.PostTemplateQuery["contentfulPost"]
 }
 
-const Post = ({ frontmatter, children }: PostProps) => {
-  const date = new Date(frontmatter.date)
+const options = {
+  renderNode: {
+    "embedded-asset-block": node => {
+      const { gatsbyImageData } = node.data.target
+      if (!gatsbyImageData) {
+        // asset is not an image
+        return null
+      }
+      return (
+        <GatsbyImage
+          image={gatsbyImageData}
+          alt={""}
+          style={{ objectFit: "cover" }}
+        />
+      )
+    },
+  },
+}
+
+const Post = ({ post }: PostProps) => {
+  const date = new Date(post.createdAt)
 
   return (
     <PostContainer>
       <PostHeader>
-        <PostFeaturedImage
+        {/* <PostFeaturedImage
           alt={""}
-          image={getImage(frontmatter.featuredImage.childrenImageSharp[0])}
-        />
-        <PostTitle>{frontmatter.title}</PostTitle>
+          image={getImage(post.body.references[0].gatsbyImageData)}
+        /> */}
+        <PostTitle>{post.title}</PostTitle>
         <PostInfoSection>
           <PostDate>{`${date.getFullYear()}.${date.getMonth()}.${date.getDate()}`}</PostDate>
         </PostInfoSection>
       </PostHeader>
-      <PostBody>{children}</PostBody>
+      <PostBody>
+        {post.body?.raw && renderRichText(post.body as never, options)}
+      </PostBody>
     </PostContainer>
   )
 }

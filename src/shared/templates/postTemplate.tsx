@@ -23,37 +23,41 @@ const components = {
 }
 
 interface PostTemplateProps {
-  children: JSX.Element
   data: Queries.PostTemplateQuery
 }
 
-const PostTemplate = ({ children, data }: PostTemplateProps) => {
-  const frontmatter = data.mdx?.frontmatter
-
+const PostTemplate = ({ data }: PostTemplateProps) => {
+  const post = data.contentfulPost
   return (
     <MDXProvider components={components}>
-      <Post frontmatter={frontmatter}>{children}</Post>
+      <Post post={post} />
     </MDXProvider>
   )
 }
 
 export default PostTemplate
 
-export const query = graphql`
-  query PostTemplate($id: String) {
-    mdx(id: { eq: $id }) {
-      body
+export const postQuery = graphql`
+  query PostTemplate($id: String!) {
+    contentfulPost(id: { eq: $id }) {
       id
-      frontmatter {
-        category
-        date
+      title
+      description {
         description
-        title
-        featuredImage {
-          childrenImageSharp {
+      }
+      body {
+        raw
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            __typename
             gatsbyImageData
           }
         }
+      }
+      createdAt
+      category {
+        type
       }
     }
   }

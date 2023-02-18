@@ -17,13 +17,16 @@ interface PostProps {
 }
 
 const Post = ({ post }: PostProps) => {
-  const image = getImage(post.body.references[0]?.gatsbyImageData)
-
   return (
     <List>
       <Link to={`${post.category.type}/${post.title}`} itemProp="url">
         <Article itemScope itemType="http://schema.org/Article">
-          <CoverImage image={image} alt={post.title} />
+          {post.thumbnail && (
+            <CoverImage
+              image={getImage(post.thumbnail.gatsbyImageData)}
+              alt={post.title}
+            />
+          )}
           <ContentContainer>
             <header>
               <h2>

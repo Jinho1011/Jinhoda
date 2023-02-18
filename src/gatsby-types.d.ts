@@ -4374,7 +4374,7 @@ type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: 
 type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type IndexPageQuery = { readonly allContentfulPost: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly createdAt: string | null, readonly category: { readonly type: string | null } | null, readonly description: { readonly description: string | null } | null, readonly body: { readonly references: ReadonlyArray<{ readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null> | null } | null }> } };
+type IndexPageQuery = { readonly allContentfulPost: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly createdAt: string | null, readonly category: { readonly type: string | null } | null, readonly description: { readonly description: string | null } | null, readonly thumbnail: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly body: { readonly references: ReadonlyArray<{ readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null> | null } | null }> } };
 
 type LayoutComponentQueryVariables = Exact<{ [key: string]: never; }>;
 

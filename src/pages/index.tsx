@@ -77,9 +77,12 @@ export const pageQuery = graphql`
         description {
           description
         }
+        thumbnail {
+          gatsbyImageData(formats: AUTO, layout: FULL_WIDTH)
+        }
         body {
           references {
-            gatsbyImageData(width: 1200)
+            gatsbyImageData(formats: AUTO, layout: FULL_WIDTH)
           }
         }
       }

@@ -36,17 +36,24 @@ const Title = styled.span`
 `
 
 const CoverImage = styled(GatsbyImage)`
+  width: 240px;
   max-width: 240px;
   max-height: 240px;
   aspect-ratio: auto 1/1;
   border-radius: 14px;
   object-fit: cover;
   transition: 0.2s ease-in-out;
+  background-color: #f9f9f9;
 
   @media ${({ theme }) => theme.device.mobile} {
     max-width: 100%;
     width: 100%;
   }
+`
+
+const DummyImage = styled.div`
+  width: 240px;
+  height: 240px;
 `
 
 const Article = styled.article`
@@ -95,4 +102,14 @@ const ContentContainer = styled.div`
 const Small = styled.small`
   color: ${({ theme }) => theme.color.subText};
 `
-export { Section, Title, CoverImage, Article, List, ContentContainer, Small }
+
+export {
+  Section,
+  Title,
+  CoverImage,
+  DummyImage,
+  Article,
+  List,
+  ContentContainer,
+  Small,
+}

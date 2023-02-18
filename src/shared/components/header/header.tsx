@@ -36,15 +36,17 @@ const Header = ({ categories }: HeaderProps) => {
         </LogoContainer>
         <MenuContainer>
           <Buttons>
-            {categories.map(category => {
-              return (
-                <Link to={`/categories/${category}`} key={category.type}>
-                  <Button>
-                    <ButtonText>{category.type}</ButtonText>
-                  </Button>
-                </Link>
-              )
-            })}
+            {[...new Set(categories.map(category => category.type))].map(
+              type => {
+                return (
+                  <Link to={`/categories/${type}`} key={type}>
+                    <Button>
+                      <ButtonText>{type}</ButtonText>
+                    </Button>
+                  </Link>
+                )
+              }
+            )}
           </Buttons>
           <ThemeToggle />
         </MenuContainer>

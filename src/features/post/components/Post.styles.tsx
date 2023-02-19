@@ -1,12 +1,13 @@
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 
-const ImageContainer = styled.div`
+const AssetContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 8px 0;
 `
 
 const ImageDescription = styled.span`
@@ -30,18 +31,6 @@ const PostContainer = styled.div`
     height: auto;
     border: 1px solid rgba(2, 32, 71, 0.05);
     border-radius: 12px;
-  }
-
-  h1 {
-    color: ${({ theme }) => theme.color.heading};
-  }
-
-  h2 {
-    color: ${({ theme }) => theme.color.subHeading};
-  }
-
-  p {
-    color: ${({ theme }) => theme.color.text};
   }
 `
 
@@ -72,10 +61,43 @@ const PostFeaturedImage = styled(GatsbyImage)`
   border-radius: 12px;
 `
 
-const PostBody = styled.div``
+const PostBody = styled.div`
+  h2 {
+    margin: 2.2em 0 0.6em 0;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: ${({ theme }) => theme.color.subHeading};
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.7;
+    font-size: 18px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    color: ${({ theme }) => theme.color.text};
+  }
+
+  code {
+    display: block;
+    padding: 16px 24px;
+    overflow-x: auto;
+    font-family: Consolas, Menlo, Monaco, source-code-pro, Courier New,
+      monospace;
+    font-size: 0.9em;
+    line-height: 1.5;
+    word-wrap: normal;
+    white-space: pre;
+    background-color: ${({ theme }) => theme.color.blockquote};
+    border: 1px solid var(--greyOpacity200);
+    border-radius: 12px;
+    color: ${({ theme }) => theme.color.subText};
+  }
+`
 
 export {
-  ImageContainer,
+  AssetContainer,
   ImageDescription,
   PostContainer,
   PostHeader,

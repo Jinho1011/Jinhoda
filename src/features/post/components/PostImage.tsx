@@ -1,7 +1,7 @@
 import React from "react"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 
-import { ImageContainer, ImageDescription } from "./Post.styles"
+import { AssetContainer, ImageDescription } from "./Post.styles"
 
 interface PostImage {
   image: IGatsbyImageData
@@ -10,10 +10,10 @@ interface PostImage {
 
 const PostImage = ({ image, description }: PostImage) => {
   return (
-    <ImageContainer>
+    <AssetContainer>
       <GatsbyImage image={image} alt={""} style={{ objectFit: "cover" }} />
       {description && <ImageDescription>{description}</ImageDescription>}
-    </ImageContainer>
+    </AssetContainer>
   )
 }
 

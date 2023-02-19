@@ -80,11 +80,6 @@ export const pageQuery = graphql`
         thumbnail {
           gatsbyImageData(formats: AUTO, layout: FULL_WIDTH)
         }
-        body {
-          references {
-            gatsbyImageData(formats: AUTO, layout: FULL_WIDTH)
-          }
-        }
       }
     }
   }

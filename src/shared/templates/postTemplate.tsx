@@ -20,7 +20,7 @@ export const postQuery = graphql`
       id
       title
       thumbnail {
-        gatsbyImageData
+        gatsbyImageData(formats: AUTO, layout: FULL_WIDTH)
       }
       description {
         description
@@ -28,12 +28,24 @@ export const postQuery = graphql`
       body {
         raw
         references {
-          ... on ContentfulAsset {
-            title
-            description
-            contentful_id
-            __typename
-            gatsbyImageData
+          ... on Node {
+            ... on ContentfulAsset {
+              contentful_id
+              __typename
+              gatsbyImageData
+              description
+              mimeType
+              publicUrl
+            }
+            ... on ContentfulCodeBlock {
+              contentful_id
+              __typename
+              code {
+                code
+              }
+              description
+              language
+            }
           }
         }
       }

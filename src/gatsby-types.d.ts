@@ -199,6 +199,8 @@ type ContentfulAssetConnection_sumArgs = {
   field: ContentfulAssetFieldSelector;
 };
 
+type ContentfulAssetContentfulCodeBlockUnion = ContentfulAsset | ContentfulCodeBlock;
+
 type ContentfulAssetEdge = {
   readonly next: Maybe<ContentfulAsset>;
   readonly node: ContentfulAsset;
@@ -329,10 +331,6 @@ type ContentfulAssetFilterInput = {
   readonly width: InputMaybe<IntQueryOperatorInput>;
 };
 
-type ContentfulAssetFilterListInput = {
-  readonly elemMatch: InputMaybe<ContentfulAssetFilterInput>;
-};
-
 type ContentfulAssetGroupConnection = {
   readonly distinct: ReadonlyArray<Scalars['String']>;
   readonly edges: ReadonlyArray<ContentfulAssetEdge>;
@@ -418,6 +416,246 @@ type ContentfulAssetSysFilterInput = {
 };
 
 type ContentfulAssetSysSortInput = {
+  readonly revision: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulCodeBlock = ContentfulEntry & ContentfulReference & Node & {
+  /** Returns the first child node of type contentfulCodeBlockCodeTextNode or null if there are no children of given type on this node */
+  readonly childContentfulCodeBlockCodeTextNode: Maybe<contentfulCodeBlockCodeTextNode>;
+  readonly children: ReadonlyArray<Node>;
+  /** Returns all children nodes filtered by type contentfulCodeBlockCodeTextNode */
+  readonly childrenContentfulCodeBlockCodeTextNode: Maybe<ReadonlyArray<Maybe<contentfulCodeBlockCodeTextNode>>>;
+  readonly code: Maybe<contentfulCodeBlockCodeTextNode>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly language: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulCodeBlockSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+};
+
+
+type ContentfulCodeBlock_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type ContentfulCodeBlock_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type ContentfulCodeBlockConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulCodeBlockEdge>;
+  readonly group: ReadonlyArray<ContentfulCodeBlockGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulCodeBlock>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulCodeBlockConnection_distinctArgs = {
+  field: ContentfulCodeBlockFieldSelector;
+};
+
+
+type ContentfulCodeBlockConnection_groupArgs = {
+  field: ContentfulCodeBlockFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulCodeBlockConnection_maxArgs = {
+  field: ContentfulCodeBlockFieldSelector;
+};
+
+
+type ContentfulCodeBlockConnection_minArgs = {
+  field: ContentfulCodeBlockFieldSelector;
+};
+
+
+type ContentfulCodeBlockConnection_sumArgs = {
+  field: ContentfulCodeBlockFieldSelector;
+};
+
+type ContentfulCodeBlockEdge = {
+  readonly next: Maybe<ContentfulCodeBlock>;
+  readonly node: ContentfulCodeBlock;
+  readonly previous: Maybe<ContentfulCodeBlock>;
+};
+
+type ContentfulCodeBlockFieldSelector = {
+  readonly childContentfulCodeBlockCodeTextNode: InputMaybe<contentfulCodeBlockCodeTextNodeFieldSelector>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly childrenContentfulCodeBlockCodeTextNode: InputMaybe<contentfulCodeBlockCodeTextNodeFieldSelector>;
+  readonly code: InputMaybe<contentfulCodeBlockCodeTextNodeFieldSelector>;
+  readonly contentful_id: InputMaybe<FieldSelectorEnum>;
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly language: InputMaybe<FieldSelectorEnum>;
+  readonly node_locale: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly spaceId: InputMaybe<FieldSelectorEnum>;
+  readonly sys: InputMaybe<ContentfulCodeBlockSysFieldSelector>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulCodeBlockFilterInput = {
+  readonly childContentfulCodeBlockCodeTextNode: InputMaybe<contentfulCodeBlockCodeTextNodeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenContentfulCodeBlockCodeTextNode: InputMaybe<contentfulCodeBlockCodeTextNodeFilterListInput>;
+  readonly code: InputMaybe<contentfulCodeBlockCodeTextNodeFilterInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly language: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulCodeBlockSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type ContentfulCodeBlockGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulCodeBlockEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulCodeBlockGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulCodeBlock>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulCodeBlockGroupConnection_distinctArgs = {
+  field: ContentfulCodeBlockFieldSelector;
+};
+
+
+type ContentfulCodeBlockGroupConnection_groupArgs = {
+  field: ContentfulCodeBlockFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulCodeBlockGroupConnection_maxArgs = {
+  field: ContentfulCodeBlockFieldSelector;
+};
+
+
+type ContentfulCodeBlockGroupConnection_minArgs = {
+  field: ContentfulCodeBlockFieldSelector;
+};
+
+
+type ContentfulCodeBlockGroupConnection_sumArgs = {
+  field: ContentfulCodeBlockFieldSelector;
+};
+
+type ContentfulCodeBlockSortInput = {
+  readonly childContentfulCodeBlockCodeTextNode: InputMaybe<contentfulCodeBlockCodeTextNodeSortInput>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly childrenContentfulCodeBlockCodeTextNode: InputMaybe<contentfulCodeBlockCodeTextNodeSortInput>;
+  readonly code: InputMaybe<contentfulCodeBlockCodeTextNodeSortInput>;
+  readonly contentful_id: InputMaybe<SortOrderEnum>;
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly description: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly language: InputMaybe<SortOrderEnum>;
+  readonly node_locale: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly spaceId: InputMaybe<SortOrderEnum>;
+  readonly sys: InputMaybe<ContentfulCodeBlockSysSortInput>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulCodeBlockSys = {
+  readonly contentType: Maybe<ContentfulCodeBlockSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulCodeBlockSysContentType = {
+  readonly sys: Maybe<ContentfulCodeBlockSysContentTypeSys>;
+};
+
+type ContentfulCodeBlockSysContentTypeFieldSelector = {
+  readonly sys: InputMaybe<ContentfulCodeBlockSysContentTypeSysFieldSelector>;
+};
+
+type ContentfulCodeBlockSysContentTypeFilterInput = {
+  readonly sys: InputMaybe<ContentfulCodeBlockSysContentTypeSysFilterInput>;
+};
+
+type ContentfulCodeBlockSysContentTypeSortInput = {
+  readonly sys: InputMaybe<ContentfulCodeBlockSysContentTypeSysSortInput>;
+};
+
+type ContentfulCodeBlockSysContentTypeSys = {
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulCodeBlockSysContentTypeSysFieldSelector = {
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly linkType: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulCodeBlockSysContentTypeSysFilterInput = {
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulCodeBlockSysContentTypeSysSortInput = {
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly linkType: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulCodeBlockSysFieldSelector = {
+  readonly contentType: InputMaybe<ContentfulCodeBlockSysContentTypeFieldSelector>;
+  readonly revision: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulCodeBlockSysFilterInput = {
+  readonly contentType: InputMaybe<ContentfulCodeBlockSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulCodeBlockSysSortInput = {
+  readonly contentType: InputMaybe<ContentfulCodeBlockSysContentTypeSortInput>;
   readonly revision: InputMaybe<SortOrderEnum>;
   readonly type: InputMaybe<SortOrderEnum>;
 };
@@ -756,22 +994,19 @@ type ContentfulPost_updatedAtArgs = {
 
 type ContentfulPostBody = {
   readonly raw: Maybe<Scalars['String']>;
-  readonly references: Maybe<ReadonlyArray<Maybe<ContentfulAsset>>>;
+  readonly references: Maybe<ReadonlyArray<Maybe<ContentfulAssetContentfulCodeBlockUnion>>>;
 };
 
 type ContentfulPostBodyFieldSelector = {
   readonly raw: InputMaybe<FieldSelectorEnum>;
-  readonly references: InputMaybe<ContentfulAssetFieldSelector>;
 };
 
 type ContentfulPostBodyFilterInput = {
   readonly raw: InputMaybe<StringQueryOperatorInput>;
-  readonly references: InputMaybe<ContentfulAssetFilterListInput>;
 };
 
 type ContentfulPostBodySortInput = {
   readonly raw: InputMaybe<SortOrderEnum>;
-  readonly references: InputMaybe<ContentfulAssetSortInput>;
 };
 
 type ContentfulPostConnection = {
@@ -2669,6 +2904,8 @@ type PotraceTurnPolicy =
 
 type Query = {
   readonly allContentfulAsset: ContentfulAssetConnection;
+  readonly allContentfulCodeBlock: ContentfulCodeBlockConnection;
+  readonly allContentfulCodeBlockCodeTextNode: contentfulCodeBlockCodeTextNodeConnection;
   readonly allContentfulContentType: ContentfulContentTypeConnection;
   readonly allContentfulEntry: ContentfulEntryConnection;
   readonly allContentfulPost: ContentfulPostConnection;
@@ -2685,6 +2922,8 @@ type Query = {
   readonly allSitePage: SitePageConnection;
   readonly allSitePlugin: SitePluginConnection;
   readonly contentfulAsset: Maybe<ContentfulAsset>;
+  readonly contentfulCodeBlock: Maybe<ContentfulCodeBlock>;
+  readonly contentfulCodeBlockCodeTextNode: Maybe<contentfulCodeBlockCodeTextNode>;
   readonly contentfulContentType: Maybe<ContentfulContentType>;
   readonly contentfulEntry: Maybe<ContentfulEntry>;
   readonly contentfulPost: Maybe<ContentfulPost>;
@@ -2708,6 +2947,22 @@ type Query_allContentfulAssetArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulAssetSortInput>>>;
+};
+
+
+type Query_allContentfulCodeBlockArgs = {
+  filter: InputMaybe<ContentfulCodeBlockFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulCodeBlockSortInput>>>;
+};
+
+
+type Query_allContentfulCodeBlockCodeTextNodeArgs = {
+  filter: InputMaybe<contentfulCodeBlockCodeTextNodeFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<contentfulCodeBlockCodeTextNodeSortInput>>>;
 };
 
 
@@ -2857,6 +3112,37 @@ type Query_contentfulAssetArgs = {
   updatedAt: InputMaybe<DateQueryOperatorInput>;
   url: InputMaybe<StringQueryOperatorInput>;
   width: InputMaybe<IntQueryOperatorInput>;
+};
+
+
+type Query_contentfulCodeBlockArgs = {
+  childContentfulCodeBlockCodeTextNode: InputMaybe<contentfulCodeBlockCodeTextNodeFilterInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  childrenContentfulCodeBlockCodeTextNode: InputMaybe<contentfulCodeBlockCodeTextNodeFilterListInput>;
+  code: InputMaybe<contentfulCodeBlockCodeTextNodeFilterInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  createdAt: InputMaybe<DateQueryOperatorInput>;
+  description: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  language: InputMaybe<StringQueryOperatorInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  spaceId: InputMaybe<StringQueryOperatorInput>;
+  sys: InputMaybe<ContentfulCodeBlockSysFilterInput>;
+  updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+
+type Query_contentfulCodeBlockCodeTextNodeArgs = {
+  childMarkdownRemark: InputMaybe<MarkdownRemarkFilterInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  childrenMarkdownRemark: InputMaybe<MarkdownRemarkFilterListInput>;
+  code: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  sys: InputMaybe<contentfulCodeBlockCodeTextNodeSysFilterInput>;
 };
 
 
@@ -4046,6 +4332,158 @@ type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']>;
 };
 
+type contentfulCodeBlockCodeTextNode = Node & {
+  /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
+  readonly childMarkdownRemark: Maybe<MarkdownRemark>;
+  readonly children: ReadonlyArray<Node>;
+  /** Returns all children nodes filtered by type MarkdownRemark */
+  readonly childrenMarkdownRemark: Maybe<ReadonlyArray<Maybe<MarkdownRemark>>>;
+  readonly code: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly sys: Maybe<contentfulCodeBlockCodeTextNodeSys>;
+};
+
+type contentfulCodeBlockCodeTextNodeConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<contentfulCodeBlockCodeTextNodeEdge>;
+  readonly group: ReadonlyArray<contentfulCodeBlockCodeTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<contentfulCodeBlockCodeTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type contentfulCodeBlockCodeTextNodeConnection_distinctArgs = {
+  field: contentfulCodeBlockCodeTextNodeFieldSelector;
+};
+
+
+type contentfulCodeBlockCodeTextNodeConnection_groupArgs = {
+  field: contentfulCodeBlockCodeTextNodeFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type contentfulCodeBlockCodeTextNodeConnection_maxArgs = {
+  field: contentfulCodeBlockCodeTextNodeFieldSelector;
+};
+
+
+type contentfulCodeBlockCodeTextNodeConnection_minArgs = {
+  field: contentfulCodeBlockCodeTextNodeFieldSelector;
+};
+
+
+type contentfulCodeBlockCodeTextNodeConnection_sumArgs = {
+  field: contentfulCodeBlockCodeTextNodeFieldSelector;
+};
+
+type contentfulCodeBlockCodeTextNodeEdge = {
+  readonly next: Maybe<contentfulCodeBlockCodeTextNode>;
+  readonly node: contentfulCodeBlockCodeTextNode;
+  readonly previous: Maybe<contentfulCodeBlockCodeTextNode>;
+};
+
+type contentfulCodeBlockCodeTextNodeFieldSelector = {
+  readonly childMarkdownRemark: InputMaybe<MarkdownRemarkFieldSelector>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkFieldSelector>;
+  readonly code: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly sys: InputMaybe<contentfulCodeBlockCodeTextNodeSysFieldSelector>;
+};
+
+type contentfulCodeBlockCodeTextNodeFilterInput = {
+  readonly childMarkdownRemark: InputMaybe<MarkdownRemarkFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkFilterListInput>;
+  readonly code: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sys: InputMaybe<contentfulCodeBlockCodeTextNodeSysFilterInput>;
+};
+
+type contentfulCodeBlockCodeTextNodeFilterListInput = {
+  readonly elemMatch: InputMaybe<contentfulCodeBlockCodeTextNodeFilterInput>;
+};
+
+type contentfulCodeBlockCodeTextNodeGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<contentfulCodeBlockCodeTextNodeEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<contentfulCodeBlockCodeTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<contentfulCodeBlockCodeTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type contentfulCodeBlockCodeTextNodeGroupConnection_distinctArgs = {
+  field: contentfulCodeBlockCodeTextNodeFieldSelector;
+};
+
+
+type contentfulCodeBlockCodeTextNodeGroupConnection_groupArgs = {
+  field: contentfulCodeBlockCodeTextNodeFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type contentfulCodeBlockCodeTextNodeGroupConnection_maxArgs = {
+  field: contentfulCodeBlockCodeTextNodeFieldSelector;
+};
+
+
+type contentfulCodeBlockCodeTextNodeGroupConnection_minArgs = {
+  field: contentfulCodeBlockCodeTextNodeFieldSelector;
+};
+
+
+type contentfulCodeBlockCodeTextNodeGroupConnection_sumArgs = {
+  field: contentfulCodeBlockCodeTextNodeFieldSelector;
+};
+
+type contentfulCodeBlockCodeTextNodeSortInput = {
+  readonly childMarkdownRemark: InputMaybe<MarkdownRemarkSortInput>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkSortInput>;
+  readonly code: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly sys: InputMaybe<contentfulCodeBlockCodeTextNodeSysSortInput>;
+};
+
+type contentfulCodeBlockCodeTextNodeSys = {
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type contentfulCodeBlockCodeTextNodeSysFieldSelector = {
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type contentfulCodeBlockCodeTextNodeSysFilterInput = {
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type contentfulCodeBlockCodeTextNodeSysSortInput = {
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
 type contentfulPostCategoryJsonNode = Node & {
   readonly children: ReadonlyArray<Node>;
   readonly id: Scalars['ID'];
@@ -4374,7 +4812,7 @@ type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: 
 type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type IndexPageQuery = { readonly allContentfulPost: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly createdAt: string | null, readonly category: { readonly type: string | null } | null, readonly description: { readonly description: string | null } | null, readonly thumbnail: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly body: { readonly references: ReadonlyArray<{ readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null> | null } | null }> } };
+type IndexPageQuery = { readonly allContentfulPost: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly createdAt: string | null, readonly category: { readonly type: string | null } | null, readonly description: { readonly description: string | null } | null, readonly thumbnail: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null }> } };
 
 type LayoutComponentQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4386,7 +4824,7 @@ type PostTemplateQueryVariables = Exact<{
 }>;
 
 
-type PostTemplateQuery = { readonly contentfulPost: { readonly id: string, readonly title: string | null, readonly createdAt: string | null, readonly thumbnail: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly description: string | null } | null, readonly body: { readonly raw: string | null, readonly references: ReadonlyArray<{ readonly __typename: 'ContentfulAsset', readonly title: string | null, readonly description: string | null, readonly contentful_id: string, readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null> | null } | null, readonly category: { readonly type: string | null } | null } | null };
+type PostTemplateQuery = { readonly contentfulPost: { readonly id: string, readonly title: string | null, readonly createdAt: string | null, readonly thumbnail: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null, readonly description: { readonly description: string | null } | null, readonly body: { readonly raw: string | null, readonly references: ReadonlyArray<{ readonly __typename: 'ContentfulAsset', readonly contentful_id: string, readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null, readonly description: string | null, readonly mimeType: string, readonly publicUrl: string } | { readonly __typename: 'ContentfulCodeBlock', readonly contentful_id: string, readonly description: string | null, readonly language: string | null, readonly code: { readonly code: string | null } | null } | null> | null } | null, readonly category: { readonly type: string | null } | null } | null };
 
 
 }

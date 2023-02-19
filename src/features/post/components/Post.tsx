@@ -1,8 +1,13 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react"
+import { Options } from "@contentful/rich-text-react-renderer"
+import { BLOCKS } from "@contentful/rich-text-types"
 import { getImage } from "gatsby-plugin-image"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 import {
+  AssetContainer,
   PostBody,
   PostContainer,
   PostDate,
@@ -17,14 +22,35 @@ interface PostProps {
   post: Queries.PostTemplateQuery["contentfulPost"]
 }
 
-const options = {
+const options: Options = {
   renderNode: {
-    "embedded-asset-block": node => {
-      const { gatsbyImageData, description } = node.data.target
-      if (!gatsbyImageData) {
-        return null
+    [BLOCKS.EMBEDDED_ASSET]: node => {
+      const { description, mimeType, gatsbyImageData, publicUrl } =
+        node.data.target
+
+      if (mimeType === "video/mp4") {
+        return (
+          <AssetContainer>
+            <video src={publicUrl} autoPlay loop muted />
+          </AssetContainer>
+        )
       }
-      return <PostImage image={gatsbyImageData} description={description} />
+
+      return (
+        <PostImage
+          image={getImage(gatsbyImageData)}
+          description={description}
+        />
+      )
+    },
+    [BLOCKS.EMBEDDED_ENTRY]: node => {
+      const {
+        code: { code },
+        descriptions,
+        language,
+      } = node.data.target
+
+      return <code>{code}</code>
     },
   },
 }
@@ -49,9 +75,7 @@ const Post = ({ post }: PostProps) => {
           }ㆍ${date.getFullYear()}.${date.getMonth()}.${date.getDate()}`}</PostDate>
         </PostInfoSection>
       </PostHeader>
-      <PostBody>
-        {post.body?.raw && renderRichText(post.body as never, options)}
-      </PostBody>
+      <PostBody>{renderRichText(post.body as any, options)}</PostBody>
     </PostContainer>
   )
 }

@@ -70,6 +70,14 @@ const PostBody = styled.div`
     color: ${({ theme }) => theme.color.subHeading};
   }
 
+  h3 {
+    margin: 2em 0 0.4em 0;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: ${({ theme }) => theme.color.subHeading};
+  }
+
   p {
     font-size: 18px;
     line-height: 1.7;

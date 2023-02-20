@@ -102,6 +102,10 @@ const PostBody = styled.div`
     border-radius: 12px;
     color: ${({ theme }) => theme.color.subText};
   }
+
+  a {
+    color: ${({ theme }) => theme.color.primary};
+  }
 `
 
 export {

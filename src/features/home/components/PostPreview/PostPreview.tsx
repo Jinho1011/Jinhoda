@@ -17,6 +17,7 @@ interface PostProps {
 }
 
 const Post = ({ post }: PostProps) => {
+  console.log(new Date(post.createdAt))
   return (
     <List>
       <Link to={`${post.category.type}/${post.title}`} itemProp="url">

@@ -44,6 +44,7 @@ const CoverImage = styled(GatsbyImage)`
   object-fit: cover;
   transition: 0.2s ease-in-out;
   background-color: #f9f9f9;
+  box-shadow: rgb(0 0 33 / 4%) 0px 8px 10px 3px, rgb(0 0 33 / 3%) 0px 1.6px 8px 0px, rgb(0 0 33 / 4%) 0px 0px 1px 0px;
 
   @media ${({ theme }) => theme.device.mobile} {
     max-width: 100%;

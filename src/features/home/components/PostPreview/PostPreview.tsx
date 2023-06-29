@@ -11,13 +11,31 @@ import {
   Small,
   Title,
 } from "./PostPreview.styles"
+import {getDateDistance, getDateDistanceText, TimeUnits} from "@toss/date";
 
 interface PostProps {
   post: Queries.IndexPageQuery["allContentfulPost"]["nodes"][0]
 }
 
 const Post = ({ post }: PostProps) => {
-  console.log(new Date(post.createdAt))
+  const startDate = new Date(post.createdAt)
+  const endDate = new Date();
+
+  const distance = getDateDistance(startDate, endDate);
+  const distanceText = getDateDistanceText(distance, {
+    separator: ' ',
+    days: (timeUnits: TimeUnits) => true,
+    // Condition to check if `hours` is included in the string
+    // @default t => t.hours > 0
+    hours: (timeUnits: TimeUnits) => false,
+    // Condition to check if `minutes` is included in the string
+    // @default t => t.minutes > 0
+    minutes: (timeUnits: TimeUnits) => false,
+    // Condition to check if `seconds` is included in the string
+    // @default t => t.seconds > 0
+    seconds: (timeUnits: TimeUnits) => false,
+  })
+
   return (
     <List>
       <Link to={`${post.category.type}/${post.title}`} itemProp="url">
@@ -42,7 +60,7 @@ const Post = ({ post }: PostProps) => {
                 itemProp="description"
               />
             </Section>
-            <Small>{post.createdAt}</Small>
+            <Small>{distanceText} 전에 작성됨</Small>
           </ContentContainer>
         </Article>
       </Link>

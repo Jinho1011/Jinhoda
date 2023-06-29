@@ -11,6 +11,8 @@
     "@fontsource/merriweather": "^4.5.14",
     "@fontsource/montserrat": "^4.5.13",
     "@mdx-js/react": "^2.1.5",
+    "@toss/date": "^1.1.6",
+    "@toss/utils": "^1.4.3",
     "babel-plugin-styled-components": "^2.0.7",
     "gatsby": "^5.2.0",
     "gatsby-plugin-feed": "^5.2.0",

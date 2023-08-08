@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Container } from '../../../assets/styles/styles';
+import { Container } from '@/assets/styles/styles';
 
 const NavContainer = styled.nav`
     height: 60px;

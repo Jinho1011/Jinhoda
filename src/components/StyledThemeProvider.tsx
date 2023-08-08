@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 
-import { darkTheme, lightTheme } from '../../assets/styles/theme';
-import DarkThemeContext from '../context/DarkTheme';
+import { darkTheme, lightTheme } from '@/assets/styles/theme';
+import DarkThemeContext from '@/shared/context/DarkTheme';
 
 const StyledThemeProvider = ({ children }: { children: React.ReactNode }) => {
     const { isDarkMode } = useContext(DarkThemeContext);

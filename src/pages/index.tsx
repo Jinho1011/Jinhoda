@@ -2,10 +2,11 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
+import Bio from '@/components/home/bio';
+import PostPreview from '@/components/home/PostPreview';
+import Seo from '@/components/seo';
+
 import { Container } from '../assets/styles/styles';
-import Bio from '../features/home/components/bio';
-import PostPreview from '../features/home/components/PostPreview';
-import Seo from '../shared/components/seo';
 
 const MainContainer = styled(Container)`
     display: flex;

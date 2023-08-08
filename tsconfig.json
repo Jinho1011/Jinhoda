@@ -10,7 +10,7 @@
             "@/*": ["src/*"],
             "@images/*": ["src/assets/images/*"],
             "@styles/*": ["src/assets/styles/*"],
-            "@components/*": ["src/shared/components/*"]
+            "@components/*": ["src/components/*"]
         }
     },
     "include": ["**/*.ts", "**/*.tsx"],

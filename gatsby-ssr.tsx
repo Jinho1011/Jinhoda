@@ -7,8 +7,8 @@ import './src/assets/styles/style.css';
 // Highlighting for code blocks
 import 'prismjs/themes/prism.css';
 
-import Layout from './src/shared/components/layout';
-import StyledThemeProvider from './src/shared/components/StyledThemeProvider';
+import Layout from './src/components/layout';
+import StyledThemeProvider from './src/components/StyledThemeProvider';
 import ContextAPIProvider from './src/shared/context/ContextAPIProvider';
 
 export const wrapPageElement = ({ element, props }) => {

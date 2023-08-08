@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Post from '@/features/post/components';
+import Post from '@/components/post';
 
 interface PostTemplateProps {
     data: Queries.PostTemplateQuery;

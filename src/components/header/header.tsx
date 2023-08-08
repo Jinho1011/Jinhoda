@@ -26,7 +26,7 @@ const Header = ({ categories }: HeaderProps) => {
                     <Link to="/">
                         <StaticImage
                             className="j-logo"
-                            src="../../../assets/images/jinhoda.png"
+                            src="../../assets/images/jinhoda.png"
                             placeholder="none"
                             height={20}
                             quality={100}

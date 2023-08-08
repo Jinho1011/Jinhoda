@@ -8,6 +8,10 @@ const AssetContainer = styled.div`
     justify-content: center;
     align-items: center;
     padding: 8px 0;
+
+    img {
+        border-radius: 30px;
+    }
 `;
 
 const ImageDescription = styled.span`

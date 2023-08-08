@@ -94,7 +94,7 @@ const List = styled.li`
 `;
 
 const ContentContainer = styled.div`
-    max-width: 600px;
+    /* max-width: 600px; */
 
     h2 {
         padding: 0;

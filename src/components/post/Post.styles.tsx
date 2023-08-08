@@ -62,9 +62,17 @@ const PostFeaturedImage = styled(GatsbyImage)`
 `;
 
 const PostBody = styled.div`
+    h1 {
+        margin: 2.4em 0 0.8em 0;
+        font-size: 26px;
+        font-weight: 600;
+        line-height: 1.6;
+        color: ${({ theme }) => theme.color.subHeading};
+    }
+
     h2 {
         margin: 2.2em 0 0.6em 0;
-        font-size: 25px;
+        font-size: 24px;
         font-weight: 600;
         line-height: 1.4;
         color: ${({ theme }) => theme.color.subHeading};

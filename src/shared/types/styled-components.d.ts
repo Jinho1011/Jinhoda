@@ -1,8 +1,8 @@
-import { ColorType, DeviceType } from "./styles/theme"
+import { ColorType, DeviceType } from './styles/theme';
 
-declare module "styled-components" {
-  export interface DefaultTheme {
-    color: ColorType
-    device: DeviceType
-  }
+declare module 'styled-components' {
+    export interface DefaultTheme {
+        color: ColorType;
+        device: DeviceType;
+    }
 }

@@ -1,22 +1,22 @@
-import React, { useContext, useEffect, useState } from "react"
-import { DefaultTheme, ThemeProvider } from "styled-components"
+import React, { useContext, useEffect, useState } from 'react';
+import { DefaultTheme, ThemeProvider } from 'styled-components';
 
-import { darkTheme, lightTheme } from "../../assets/styles/theme"
-import DarkThemeContext from "../context/DarkTheme"
+import { darkTheme, lightTheme } from '../../assets/styles/theme';
+import DarkThemeContext from '../context/DarkTheme';
 
 const StyledThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const { isDarkMode } = useContext(DarkThemeContext)
-  const [theme, setTheme] = useState<null | DefaultTheme>(null)
+    const { isDarkMode } = useContext(DarkThemeContext);
+    const [theme, setTheme] = useState<null | DefaultTheme>(null);
 
-  useEffect(() => {
-    setTheme(isDarkMode ? darkTheme : lightTheme)
-  }, [isDarkMode])
+    useEffect(() => {
+        setTheme(isDarkMode ? darkTheme : lightTheme);
+    }, [isDarkMode]);
 
-  if (!theme) {
-    return <></>
-  }
+    if (!theme) {
+        return <></>;
+    }
 
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
-}
+    return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+};
 
-export default StyledThemeProvider
+export default StyledThemeProvider;

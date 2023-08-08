@@ -5,49 +5,49 @@
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
-import * as React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import * as React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
 interface SeoProps {
-  title: string
-  description?: string
-  children?: React.ReactNode
+    title: string;
+    description?: string;
+    children?: React.ReactNode;
 }
 
 const Seo = ({ description, title, children }: SeoProps) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-          }
-        }
-      }
-    `
-  )
+    const { site } = useStaticQuery(
+        graphql`
+            query {
+                site {
+                    siteMetadata {
+                        title
+                        description
+                    }
+                }
+            }
+        `
+    );
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+    const metaDescription = description || site.siteMetadata.description;
+    const defaultTitle = site.siteMetadata?.title;
 
-  return (
-    <>
-      <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
-      <meta name="description" content={metaDescription} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={metaDescription} />
-      <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary" />
-      <meta
-        name="twitter:creator"
-        content={site.siteMetadata?.social?.twitter || ``}
-      />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={metaDescription} />
-      {children}
-    </>
-  )
-}
+    return (
+        <>
+            <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
+            <meta name="description" content={metaDescription} />
+            <meta property="og:title" content={title} />
+            <meta property="og:description" content={metaDescription} />
+            <meta property="og:type" content="website" />
+            <meta name="twitter:card" content="summary" />
+            <meta
+                name="twitter:creator"
+                content={site.siteMetadata?.social?.twitter || ``}
+            />
+            <meta name="twitter:title" content={title} />
+            <meta name="twitter:description" content={metaDescription} />
+            {children}
+        </>
+    );
+};
 
-export default Seo
+export default Seo;

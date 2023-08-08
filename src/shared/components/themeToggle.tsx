@@ -1,87 +1,90 @@
-import React, { useContext } from "react"
-import styled from "styled-components"
+import React, { useContext } from 'react';
+import styled from 'styled-components';
 
-import Moon from "../../assets/images/Moon"
-import Sun from "../../assets/images/Sun"
-import DarkThemeContext from "../context/DarkTheme"
+import Moon from '../../assets/images/Moon';
+import Sun from '../../assets/images/Sun';
+import DarkThemeContext from '../context/DarkTheme';
 
 const ToggleLabel = styled.label`
-  display: block;
-
-  .toggle {
-    height: 32px;
-    width: 65px;
-    background: ${({ theme }) => theme.color.foreground};
-    border-radius: 20px;
-    padding: 6px;
-    position: relative;
-    transition: background 0.5s ease;
-    cursor: pointer;
-  }
-
-  .toggle::before {
-    content: "";
     display: block;
-    height: 20px;
-    width: 20px;
-    border-radius: 15px;
-    background: ${({ theme }) => theme.color.background};
-    position: absolute;
-    z-index: 2;
-    transform: translate(0);
-    transition: transform 0.5s ease, background 0.5s ease;
-  }
 
-  .toggle.enabled::before {
-    transform: translateX(32px);
-  }
+    .toggle {
+        height: 32px;
+        width: 65px;
+        background: ${({ theme }) => theme.color.foreground};
+        border-radius: 20px;
+        padding: 6px;
+        position: relative;
+        transition: background 0.5s ease;
+        cursor: pointer;
+    }
 
-  .toggle input {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-  }
+    .toggle::before {
+        content: '';
+        display: block;
+        height: 20px;
+        width: 20px;
+        border-radius: 15px;
+        background: ${({ theme }) => theme.color.background};
+        position: absolute;
+        z-index: 2;
+        transform: translate(0);
+        transition: transform 0.5s ease, background 0.5s ease;
+    }
 
-  .toggle .icons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    margin: 0 2.5px;
-  }
+    .toggle.enabled::before {
+        transform: translateX(32px);
+    }
 
-  .toggle .icons svg {
-    fill: ${({ theme }) => theme.color.background};
-    height: 15px;
-    width: 15px;
-    z-index: 0;
-  }
-`
+    .toggle input {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+    }
+
+    .toggle .icons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        margin: 0 2.5px;
+    }
+
+    .toggle .icons svg {
+        fill: ${({ theme }) => theme.color.background};
+        height: 15px;
+        width: 15px;
+        z-index: 0;
+    }
+`;
 
 const ThemeToggle = () => {
-  const { isDarkMode, toggleDarkMode } = useContext(DarkThemeContext)
+    const { isDarkMode, toggleDarkMode } = useContext(DarkThemeContext);
 
-  const onToggleTheme = () => {
-    window.localStorage.setItem("color-mode", isDarkMode ? "light" : "dark")
-    toggleDarkMode()
-  }
+    const onToggleTheme = () => {
+        window.localStorage.setItem(
+            'color-mode',
+            isDarkMode ? 'light' : 'dark'
+        );
+        toggleDarkMode();
+    };
 
-  return (
-    <ToggleLabel className="toggle-wrapper" htmlFor="toggle">
-      <div className={`toggle ${isDarkMode ? "enabled" : "disabled"}`}>
-        <div className="icons">
-          <Sun />
-          <Moon />
-        </div>
-        <input
-          id="toggle"
-          name="toggle"
-          type="checkbox"
-          onClick={onToggleTheme}
-        />
-      </div>
-    </ToggleLabel>
-  )
-}
+    return (
+        <ToggleLabel className="toggle-wrapper" htmlFor="toggle">
+            <div className={`toggle ${isDarkMode ? 'enabled' : 'disabled'}`}>
+                <div className="icons">
+                    <Sun />
+                    <Moon />
+                </div>
+                <input
+                    id="toggle"
+                    name="toggle"
+                    type="checkbox"
+                    onClick={onToggleTheme}
+                />
+            </div>
+        </ToggleLabel>
+    );
+};
 
-export default ThemeToggle
+export default ThemeToggle;

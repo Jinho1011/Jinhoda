@@ -1,18 +1,18 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
-    "lib": ["esnext", "dom"],
-    "jsx": "react-jsx",
-    "esModuleInterop": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"],
-      "@images/*": ["src/assets/images/*"],
-      "@styles/*": ["src/assets/styles/*"],
-      "@components/*": ["src/shared/components/*"]
-    }
-  },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "commonjs",
+        "lib": ["esnext", "dom"],
+        "jsx": "react-jsx",
+        "esModuleInterop": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"],
+            "@images/*": ["src/assets/images/*"],
+            "@styles/*": ["src/assets/styles/*"],
+            "@components/*": ["src/shared/components/*"]
+        }
+    },
+    "include": ["**/*.ts", "**/*.tsx"],
+    "exclude": ["node_modules"]
 }

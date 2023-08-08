@@ -9,7 +9,7 @@ import 'prismjs/themes/prism.css';
 
 import Layout from './src/components/layout';
 import StyledThemeProvider from './src/components/StyledThemeProvider';
-import ContextAPIProvider from './src/shared/context/ContextAPIProvider';
+import ContextAPIProvider from './src/context/ContextAPIProvider';
 
 export const wrapPageElement = ({ element, props }) => {
     return <Layout {...props}>{element}</Layout>;

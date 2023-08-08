@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Moon from '@/assets/images/Moon';
 import Sun from '@/assets/images/Sun';
-import DarkThemeContext from '@/shared/context/DarkTheme';
+import DarkThemeContext from '@/context/DarkTheme';
 
 const ToggleLabel = styled.label`
     display: block;

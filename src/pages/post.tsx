@@ -1,18 +1,19 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Post from '@/features/post/components/Post';
+import Post from '@/features/post/components';
 
 interface PostTemplateProps {
     data: Queries.PostTemplateQuery;
 }
 
-const PostTemplate = ({ data }: PostTemplateProps) => {
+const PostPage = ({ data }: PostTemplateProps) => {
     const post = data.contentfulPost;
+
     return <Post post={post} />;
 };
 
-export default PostTemplate;
+export default PostPage;
 
 export const postQuery = graphql`
     query PostTemplate($id: String!) {

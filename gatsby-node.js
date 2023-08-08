@@ -21,9 +21,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
  */
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions;
-    const postTemplate = path.resolve(
-        `./src/shared/templates/postTemplate.tsx`
-    );
+    const postTemplate = path.resolve(`./src/pages/post.tsx`);
 
     const result = await graphql(`
         {

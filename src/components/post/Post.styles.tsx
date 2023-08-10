@@ -113,6 +113,7 @@ const PostBody = styled.div`
         border: 1px solid var(--greyOpacity200);
         border-radius: 12px;
         color: ${({ theme }) => theme.color.subText};
+        margin: 20px 0;
     }
 
     a {

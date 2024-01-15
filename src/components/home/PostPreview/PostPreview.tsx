@@ -16,11 +16,12 @@ import {
 } from './PostPreview.styles';
 
 interface PostProps {
-    post: Queries.IndexPageQuery['allContentfulPost']['nodes'][0];
+    // post: Queries.IndexPageQuery['allContentfulPost']['nodes'][0];
 }
 
-const Post = ({ post }: PostProps) => {
-    const startDate = new Date(post.createdAt);
+const Post = ({}: PostProps) => {
+    // const startDate = new Date(post.createdAt);
+    const startDate = new Date();
     const endDate = new Date();
 
     const distance = getDateDistance(startDate, endDate);
@@ -40,7 +41,7 @@ const Post = ({ post }: PostProps) => {
 
     return (
         <List>
-            <Link to={`${post.category.type}/${post.title}`} itemProp="url">
+            {/* <Link to={`${post.category.type}/${post.title}`} itemProp="url">
                 <Article itemScope itemType="http://schema.org/Article">
                     {post.thumbnail && (
                         <CoverImage
@@ -65,7 +66,7 @@ const Post = ({ post }: PostProps) => {
                         <Small>{distanceText} 전에 작성됨</Small>
                     </ContentContainer>
                 </Article>
-            </Link>
+            </Link> */}
         </List>
     );
 };

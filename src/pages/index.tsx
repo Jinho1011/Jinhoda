@@ -21,37 +21,37 @@ const PostList = styled.ul`
 `;
 
 interface BlogIndexProps {
-    data: Queries.IndexPageQuery;
+    // data: Queries.IndexPageQuery;
     location: Location;
 }
 
-const BlogIndex = ({ data }: BlogIndexProps) => {
-    const posts = data.allContentfulPost.nodes;
+const BlogIndex = ({}: BlogIndexProps) => {
+    // const posts = data.allContentfulPost.nodes;
 
-    if (posts.length === 0) {
-        return (
-            <>
-                <Bio />
-                <p>
-                    No blog posts found. Add markdown posts to "content/blog"
-                    (or the directory you specified for the
-                    "gatsby-source-filesystem" plugin in gatsby-config.js).
-                </p>
-            </>
-        );
-    }
+    // if (posts.length === 0) {
+    //     return (
+    //         <>
+    //             <Bio />
+    //             <p>
+    //                 No blog posts found. Add markdown posts to "content/blog"
+    //                 (or the directory you specified for the
+    //                 "gatsby-source-filesystem" plugin in gatsby-config.js).
+    //             </p>
+    //         </>
+    //     );
+    // }
 
     return (
         <main>
             <MainContainer>
                 <PostList>
-                    {posts.map(
+                    {/* {posts.map(
                         (
                             post: Queries.IndexPageQuery['allContentfulPost']['nodes'][0]
                         ) => {
                             return <PostPreview post={post} key={post.id} />;
                         }
-                    )}
+                    )} */}
                 </PostList>
             </MainContainer>
         </main>
@@ -67,23 +67,23 @@ export default BlogIndex;
  */
 export const Head = () => <Seo title="All posts" />;
 
-export const pageQuery = graphql`
-    query IndexPage {
-        allContentfulPost(sort: { date: DESC }) {
-            nodes {
-                id
-                title
-                createdAt
-                category {
-                    type
-                }
-                description {
-                    description
-                }
-                thumbnail {
-                    gatsbyImageData(formats: AUTO, layout: FULL_WIDTH)
-                }
-            }
-        }
-    }
-`;
+// export const pageQuery = graphql`
+//     query IndexPage {
+//         allContentfulPost(sort: { date: DESC }) {
+//             nodes {
+//                 id
+//                 title
+//                 createdAt
+//                 category {
+//                     type
+//                 }
+//                 description {
+//                     description
+//                 }
+//                 thumbnail {
+//                     gatsbyImageData(formats: AUTO, layout: FULL_WIDTH)
+//                 }
+//             }
+//         }
+//     }
+// `;

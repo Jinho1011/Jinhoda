@@ -14,14 +14,14 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-    const data = useStaticQuery<Queries.LayoutComponentQuery>(LayoutQuery);
-    const categories = data.allContentfulPostCategoryJsonNode.nodes;
+    // const data = useStaticQuery<Queries.LayoutComponentQuery>(LayoutQuery);
+    // const categories = data.allContentfulPostCategoryJsonNode.nodes;
 
     return (
         <>
             <GlobalStyle />
             <LayoutContainer>
-                <Header categories={categories} />
+                {/* <Header categories={categories} /> */}
                 {children}
                 <Footer />
             </LayoutContainer>
@@ -31,17 +31,17 @@ const Layout = ({ children }: LayoutProps) => {
 
 export default Layout;
 
-export const LayoutQuery = graphql`
-    query LayoutComponent {
-        site {
-            siteMetadata {
-                title
-            }
-        }
-        allContentfulPostCategoryJsonNode {
-            nodes {
-                type
-            }
-        }
-    }
-`;
+// export const LayoutQuery = graphql`
+//     query LayoutComponent {
+//         site {
+//             siteMetadata {
+//                 title
+//             }
+//         }
+//         allContentfulPostCategoryJsonNode {
+//             nodes {
+//                 type
+//             }
+//         }
+//     }
+// `;

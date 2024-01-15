@@ -23,30 +23,24 @@ exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions;
     const postTemplate = path.resolve(`./src/pages/post.tsx`);
 
-    const result = await graphql(`
-        {
-            allContentfulPost {
-                nodes {
-                    id
-                    title
-                    category {
-                        type
+    const { data } = await graphql(`
+        query {
+            allNotion {
+                edges {
+                    node {
+                        id
+                        title
                     }
                 }
             }
         }
     `);
-
-    const contentfulPosts = result.data.allContentfulPost.nodes;
-
-    contentfulPosts.forEach((post) => {
+    data.allNotion.edges.forEach(({ node }) => {
+        const { id, title } = node;
         createPage({
-            path: `${post.category.type}/${post.title}`,
+            path: `/${title}`,
             component: postTemplate,
-            context: {
-                id: post.id,
-                title: post.title
-            }
+            context: { id, slug: `${title}` }
         });
     });
 };

@@ -1,13 +1,24 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
+import Contents from '@/components/Post/Content';
+import { getNotionNodeByUrl } from '@/hooks/useNotion';
+import { notionNodeToJson } from '@/utils/notion';
+
 interface PostPageProps {
-    data: Queries.Notion;
+    data: Queries.Notion[];
+    pageContext: { id: string; slug: string };
 }
 
-const PostPage = ({ data }: PostPageProps) => {
-    console.log('🚀 ~ PostPage ~ data:', data);
-    return <div>post</div>;
+const PostPage = ({ data, pageContext }: PostPageProps) => {
+    const currentPost = getNotionNodeByUrl(data, pageContext.slug);
+    const content = notionNodeToJson(currentPost);
+
+    return (
+        <div>
+            <Contents childrens={content.children} />
+        </div>
+    );
 };
 
 export default PostPage;

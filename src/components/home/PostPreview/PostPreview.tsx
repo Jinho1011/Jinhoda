@@ -3,9 +3,7 @@
 import * as React from 'react';
 import { getDateDistance, getDateDistanceText, TimeUnits } from '@toss/date';
 import { Link } from 'gatsby';
-import { getImage } from 'gatsby-plugin-image';
 
-import { getNotionNodeByUrl } from '@/hooks/useNotion';
 import { notionNodeToJson } from '@/utils/notion';
 
 import {

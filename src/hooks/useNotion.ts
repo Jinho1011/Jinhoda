@@ -29,8 +29,11 @@ export const getNotionNodeAll = (res) => {
     });
 };
 
-export const getNotionNodeByUrl = (nodes: Queries.Notion[], title: string) => {
-    return nodes.find((node: Queries.Notion) => {
+export const getNotionNodeByUrl = (
+    res,
+    title: string
+): Queries.Notion | undefined => {
+    return res.allNotion.edges.find(({ node }: { node: Queries.Notion }) => {
         return node.title === title;
-    });
+    }).node;
 };

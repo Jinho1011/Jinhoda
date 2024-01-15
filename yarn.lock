@@ -6272,6 +6272,14 @@ gatsby-source-filesystem@^5.6.0:
     valid-url "^1.0.9"
     xstate "^4.35.3"
 
+gatsby-source-notion-feely@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-source-notion-feely/-/gatsby-source-notion-feely-2.0.0.tgz#e36a148ecb69ed24d4ac8916a69f539c9f594e8e"
+  integrity sha512-t54nAFNQ9ZIfXfounnr9SwClpToKlEW3yqC7zG8ddexvc32erYTDLmdaPDMSckdLwAQP+Ol8a1RqOC44FU3boA==
+  dependencies:
+    node-fetch "^2.6.1"
+    or-pipets "^1.0.1"
+
 gatsby-telemetry@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-4.3.1.tgz#339209440b2cea3de3918f4f91664546d4783112"
@@ -9171,6 +9179,13 @@ node-fetch@2.6.7, node-fetch@^2.6.6, node-fetch@^2.6.7:
   dependencies:
     whatwg-url "^5.0.0"
 
+node-fetch@^2.6.1:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.7.0.tgz#d0f0fa6e3e2dc1d27efcd8ad99d550bda94d187d"
+  integrity sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==
+  dependencies:
+    whatwg-url "^5.0.0"
+
 node-gyp-build-optional-packages@5.0.3:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/node-gyp-build-optional-packages/-/node-gyp-build-optional-packages-5.0.3.tgz#92a89d400352c44ad3975010368072b41ad66c17"
@@ -9399,6 +9414,11 @@ optionator@^0.9.1:
     prelude-ls "^1.2.1"
     type-check "^0.4.0"
     word-wrap "^1.2.3"
+
+or-pipets@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/or-pipets/-/or-pipets-1.0.1.tgz#0699c99f95a535614a585cd7fb3a1a216a47b5c0"
+  integrity sha512-xgIIdB4w00pbhtNPYLF/caifwbc4KrE7jy4WqiDRzRrC2g3YVR4ypRwbKRA/bXzftQEA2SK8c+wKI2R7kqKiLQ==
 
 ordered-binary@^1.2.4:
   version "1.4.0"

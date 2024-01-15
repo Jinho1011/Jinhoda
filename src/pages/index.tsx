@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Bio from '@/components/home/bio';
 import PostPreview from '@/components/home/PostPreview';
 import Seo from '@/components/seo';
+import { useGetNotionQuery } from '@/hooks/useNotion';
 
 import { Container } from '../assets/styles/styles';
 
@@ -20,70 +21,35 @@ const PostList = styled.ul`
     padding: 20px;
 `;
 
-interface BlogIndexProps {
-    // data: Queries.IndexPageQuery;
-    location: Location;
-}
+const IndexPage = () => {
+    const posts = useGetNotionQuery();
 
-const BlogIndex = ({}: BlogIndexProps) => {
-    // const posts = data.allContentfulPost.nodes;
-
-    // if (posts.length === 0) {
-    //     return (
-    //         <>
-    //             <Bio />
-    //             <p>
-    //                 No blog posts found. Add markdown posts to "content/blog"
-    //                 (or the directory you specified for the
-    //                 "gatsby-source-filesystem" plugin in gatsby-config.js).
-    //             </p>
-    //         </>
-    //     );
-    // }
+    if (posts.length === 0) {
+        return (
+            <>
+                <Bio />
+                <p>
+                    No blog posts found. Add markdown posts to "content/blog"
+                    (or the directory you specified for the
+                    "gatsby-source-filesystem" plugin in gatsby-config.js).
+                </p>
+            </>
+        );
+    }
 
     return (
         <main>
             <MainContainer>
                 <PostList>
-                    {/* {posts.map(
-                        (
-                            post: Queries.IndexPageQuery['allContentfulPost']['nodes'][0]
-                        ) => {
-                            return <PostPreview post={post} key={post.id} />;
-                        }
-                    )} */}
+                    {posts.map((post) => {
+                        return <PostPreview post={post} key={post.id} />;
+                    })}
                 </PostList>
             </MainContainer>
         </main>
     );
 };
 
-export default BlogIndex;
+export default IndexPage;
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
 export const Head = () => <Seo title="All posts" />;
-
-// export const pageQuery = graphql`
-//     query IndexPage {
-//         allContentfulPost(sort: { date: DESC }) {
-//             nodes {
-//                 id
-//                 title
-//                 createdAt
-//                 category {
-//                     type
-//                 }
-//                 description {
-//                     description
-//                 }
-//                 thumbnail {
-//                     gatsbyImageData(formats: AUTO, layout: FULL_WIDTH)
-//                 }
-//             }
-//         }
-//     }
-// `;

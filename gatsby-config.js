@@ -107,7 +107,7 @@ module.exports = {
                         id: process.env.NOTION_DATABASE_ID,
                         name: process.env.NOTION_DATABASE_NAME,
                         pageFilter: {
-                            property: 'Published',
+                            property: 'published',
                             checkbox: {
                                 equals: true
                             }

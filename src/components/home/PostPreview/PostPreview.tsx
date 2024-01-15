@@ -5,6 +5,9 @@ import { getDateDistance, getDateDistanceText, TimeUnits } from '@toss/date';
 import { Link } from 'gatsby';
 import { getImage } from 'gatsby-plugin-image';
 
+import { getNotionNodeByUrl } from '@/hooks/useNotion';
+import { notionNodeToJson } from '@/utils/notion';
+
 import {
     Article,
     ContentContainer,
@@ -16,38 +19,32 @@ import {
 } from './PostPreview.styles';
 
 interface PostProps {
-    // post: Queries.IndexPageQuery['allContentfulPost']['nodes'][0];
+    post: Queries.Notion;
 }
 
-const Post = ({}: PostProps) => {
-    // const startDate = new Date(post.createdAt);
-    const startDate = new Date();
-    const endDate = new Date();
+const Post = ({ post }: PostProps) => {
+    const content = notionNodeToJson(post);
+    const thumbnail = content.cover[content.cover.type].url;
 
+    const startDate = new Date(post.createdAt);
+    const endDate = new Date();
     const distance = getDateDistance(startDate, endDate);
     const distanceText = getDateDistanceText(distance, {
         separator: ' ',
         days: (timeUnits: TimeUnits) => true,
-        // Condition to check if `hours` is included in the string
-        // @default t => t.hours > 0
         hours: (timeUnits: TimeUnits) => false,
-        // Condition to check if `minutes` is included in the string
-        // @default t => t.minutes > 0
         minutes: (timeUnits: TimeUnits) => false,
-        // Condition to check if `seconds` is included in the string
-        // @default t => t.seconds > 0
         seconds: (timeUnits: TimeUnits) => false
     });
 
     return (
         <List>
-            {/* <Link to={`${post.category.type}/${post.title}`} itemProp="url">
+            <Link to={`/${post.title}`} itemProp="url">
                 <Article itemScope itemType="http://schema.org/Article">
-                    {post.thumbnail && (
-                        <CoverImage
-                            image={getImage(post.thumbnail.gatsbyImageData)}
-                            alt={post.title}
-                        />
+                    {thumbnail ? (
+                        <CoverImage src={thumbnail} alt={post.title} />
+                    ) : (
+                        <></>
                     )}
                     <ContentContainer>
                         <header>
@@ -58,7 +55,9 @@ const Post = ({}: PostProps) => {
                         <Section>
                             <p
                                 dangerouslySetInnerHTML={{
-                                    __html: post.description.description
+                                    __html: content.properties.description.rich_text
+                                        .map((richText) => richText.plain_text)
+                                        .join('')
                                 }}
                                 itemProp="description"
                             />
@@ -66,7 +65,7 @@ const Post = ({}: PostProps) => {
                         <Small>{distanceText} 전에 작성됨</Small>
                     </ContentContainer>
                 </Article>
-            </Link> */}
+            </Link>
         </List>
     );
 };

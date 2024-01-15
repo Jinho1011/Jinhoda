@@ -23,13 +23,6 @@ module.exports = {
     },
     plugins: [
         `gatsby-plugin-image`,
-        // {
-        //   resolve: `gatsby-source-filesystem`,
-        //   options: {
-        //     path: `${__dirname}/content/posts`,
-        //     name: `posts`,
-        //   },
-        // },
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -106,10 +99,21 @@ module.exports = {
             }
         },
         {
-            resolve: `gatsby-source-contentful`,
+            resolve: `gatsby-source-notion-feely`,
             options: {
-                spaceId: process.env.CONTENTFUL_SPACE_ID,
-                accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+                token: process.env.NOTION_TOKEN,
+                databases: [
+                    {
+                        id: process.env.NOTION_DATABASE_ID,
+                        name: process.env.NOTION_DATABASE_NAME,
+                        pageFilter: {
+                            property: 'published',
+                            checkbox: {
+                                equals: true
+                            }
+                        }
+                    }
+                ]
             }
         },
         `gatsby-plugin-netlify`

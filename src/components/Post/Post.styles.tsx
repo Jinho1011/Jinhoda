@@ -1,23 +1,4 @@
-import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
-
-const AssetContainer = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 0;
-
-    img {
-        border-radius: 30px;
-    }
-`;
-
-const ImageDescription = styled.span`
-    color: ${({ theme }) => theme.color.subText};
-    padding: 10px 0 0;
-`;
 
 const PostContainer = styled.div`
     max-width: 700px;
@@ -60,46 +41,63 @@ const PostDate = styled.span`
     color: ${({ theme }) => theme.color.subText};
 `;
 
-const PostFeaturedImage = styled(GatsbyImage)`
+const PostFeaturedImage = styled.img`
     width: 100%;
     border-radius: 12px;
+    box-shadow: rgb(0 0 33 / 4%) 0px 8px 10px 3px,
+        rgb(0 0 33 / 3%) 0px 1.6px 8px 0px, rgb(0 0 33 / 4%) 0px 0px 1px 0px;
 `;
 
 const PostBody = styled.div`
     h1 {
-        margin: 2.4em 0 0.8em 0;
-        font-size: 26px;
+        margin: 0;
+        font-size: 26px !important;
         font-weight: 600;
         line-height: 1.6;
         color: ${({ theme }) => theme.color.subHeading};
     }
 
     h2 {
-        margin: 2.2em 0 0.6em 0;
-        font-size: 24px;
+        margin: 0;
+        font-size: 24px !important;
         font-weight: 600;
         line-height: 1.4;
         color: ${({ theme }) => theme.color.subHeading};
     }
 
     h3 {
-        margin: 2em 0 0.4em 0;
-        font-size: 20px;
+        margin: 0;
+        font-size: 20px !important;
         font-weight: 600;
         line-height: 1.3;
         color: ${({ theme }) => theme.color.subHeading};
     }
 
-    p {
+    p,
+    b,
+    i {
         font-size: 18px;
         line-height: 1.7;
         font-size: 18px;
         word-break: keep-all;
         overflow-wrap: break-word;
         color: ${({ theme }) => theme.color.text};
+        display: inline;
     }
 
-    code {
+    .block-paragraph {
+        padding: 10px 0;
+    }
+
+    .block-code {
+        margin: 0;
+
+        pre {
+            border-radius: 10px;
+        }
+    }
+
+    /* code {
         display: block;
         padding: 16px 24px;
         overflow-x: auto;
@@ -114,16 +112,18 @@ const PostBody = styled.div`
         border-radius: 12px;
         color: ${({ theme }) => theme.color.subText};
         margin: 20px 0;
-    }
+    } */
 
     a {
         color: ${({ theme }) => theme.color.primary};
     }
+
+    img {
+        width: 100%;
+    }
 `;
 
 export {
-    AssetContainer,
-    ImageDescription,
     PostContainer,
     PostHeader,
     PostTitle,

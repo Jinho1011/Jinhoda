@@ -1,0 +1,22 @@
+@import '@scss/abstracts/mixin';
+
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 4px;
+  z-index: 1000;
+
+  visibility: hidden;
+
+  &.visible {
+    @include animationFadeIn(400ms);
+    visibility: visible;
+  }
+
+  .scroll-progress {
+    height: 4px;
+    border-radius: 8px;
+    background-color: var(--color-secondary);
+  }
+}

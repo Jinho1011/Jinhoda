@@ -1,0 +1,10 @@
+@import '@scss/abstracts/mixin';
+
+.circle-progress-box {
+  @include flexCenter;
+  width: 100%;
+  svg {
+    @include animationRotate(1.1s);
+    animation-iteration-count: infinite;
+  }
+}

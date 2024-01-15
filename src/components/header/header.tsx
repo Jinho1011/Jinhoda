@@ -13,9 +13,7 @@ import {
 } from './header.styles';
 
 interface HeaderProps {
-    categories: readonly {
-        readonly type: string;
-    }[];
+    categories: string[];
 }
 
 const Header = ({ categories }: HeaderProps) => {
@@ -35,21 +33,20 @@ const Header = ({ categories }: HeaderProps) => {
                     </Link>
                 </LogoContainer>
                 <MenuContainer>
-                    <Buttons>
-                        {[
-                            ...new Set(
-                                categories.map((category) => category.type)
-                            )
-                        ].map((type) => {
+                    {/* <Buttons>
+                        {[...new Set(categories)].map((category) => {
                             return (
-                                <Link to={`/categories/${type}`} key={type}>
+                                <Link
+                                    to={`/categories/${category}`}
+                                    key={category}
+                                >
                                     <Button>
-                                        <ButtonText>{type}</ButtonText>
+                                        <ButtonText>{category}</ButtonText>
                                     </Button>
                                 </Link>
                             );
                         })}
-                    </Buttons>
+                    </Buttons> */}
                     <ThemeToggle />
                 </MenuContainer>
             </HeaderContainer>

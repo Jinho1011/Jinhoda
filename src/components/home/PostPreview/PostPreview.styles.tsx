@@ -1,4 +1,3 @@
-import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 
 const Section = styled.section`
@@ -35,8 +34,9 @@ const Title = styled.span`
     }
 `;
 
-const CoverImage = styled(GatsbyImage)`
+const CoverImage = styled.img`
     width: 240px;
+    height: 240px;
     max-width: 240px;
     max-height: 240px;
     aspect-ratio: auto 1/1;

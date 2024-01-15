@@ -1,11 +1,14 @@
 import * as React from 'react';
-// import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/light';
-// import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-// import { IconCopyLink } from '@components/icon';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import {
+    oneDark,
+    oneLight
+} from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { NParagraph } from '@components/Post/notion';
-// import useClipboard from '@src/hooks/useClipboard';
 import { Code } from '@types';
 import { getPlainTextByRichText } from '@utils/notion';
+
+import DarkThemeContext from '@/context/DarkTheme';
 
 interface NCodeProps {
     code: Code;
@@ -13,6 +16,7 @@ interface NCodeProps {
 
 export default function NCode({ code }: NCodeProps) {
     const codeString = getPlainTextByRichText(code.rich_text);
+    const { isDarkMode } = React.useContext(DarkThemeContext);
 
     return (
         <figure
@@ -20,17 +24,13 @@ export default function NCode({ code }: NCodeProps) {
                 code.language && 'language'
             }`}
         >
-            <div className="code-header">
-                <small className="language">{code.language}</small>
-            </div>
-            {codeString}
-            {/* <SyntaxHighlighter
+            <SyntaxHighlighter
                 language={code.language}
-                style={vscDarkPlus}
-                showLineNumbers={true}
+                style={isDarkMode ? oneDark : oneLight}
+                showLineNumbers={false}
             >
                 {codeString}
-            </SyntaxHighlighter> */}
+            </SyntaxHighlighter>
             {code.caption.length > 0 && (
                 <figcaption className="caption">
                     <NParagraph richText={code.caption} />

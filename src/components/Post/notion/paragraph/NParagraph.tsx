@@ -6,13 +6,16 @@ interface NParagraphProps {
     paragraph?: TextBlock;
     richText?: RichText | Caption;
     className?: string;
+    tagName?: string;
 }
 
 export default function NParagraph({
     paragraph,
     richText,
-    className
+    className,
+    tagName
 }: NParagraphProps) {
+    const Tag = (tagName || 'p') as keyof JSX.IntrinsicElements;
     const blockTexts = paragraph?.rich_text || richText || [];
     if (blockTexts.length === 0) {
         return <br />;
@@ -94,7 +97,7 @@ export default function NParagraph({
                         const text = t.plain_text.replaceAll('\n', '<br/>');
                         return (
                             <React.Fragment key={`block-paragraph-text-${i}`}>
-                                <p
+                                <Tag
                                     className={classNames.join(' ')}
                                     dangerouslySetInnerHTML={{ __html: text }}
                                 />

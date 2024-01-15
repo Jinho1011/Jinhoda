@@ -11,7 +11,7 @@ export default function NHeading1({ head1 }: NHeading1Props) {
         <>
             {head1 && (
                 <h1>
-                    <NParagraph paragraph={head1} />
+                    <NParagraph paragraph={head1} tagName="h1" />
                 </h1>
             )}
         </>

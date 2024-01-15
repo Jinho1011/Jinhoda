@@ -22,9 +22,11 @@ interface PostProps {
 
 const Post = ({ post }: PostProps) => {
     const content = notionNodeToJson(post);
-    const thumbnail = content.cover[content.cover.type].url;
+    const date = content.properties.date.date.start;
+    const thumbnail =
+        content?.cover && content?.cover[content?.cover?.type]?.url;
 
-    const startDate = new Date(post.createdAt);
+    const startDate = new Date(date);
     const endDate = new Date();
     const distance = getDateDistance(startDate, endDate);
     const distanceText = getDateDistanceText(distance, {

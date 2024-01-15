@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import Bio from '@/components/home/bio';
 import PostPreview from '@/components/home/PostPreview';
 import Seo from '@/components/seo';
 import { useGetNotionQuery } from '@/hooks/useNotion';
+import { sortNotionNodesByDate } from '@/utils/date';
 
 import { Container } from '../assets/styles/styles';
 
@@ -41,7 +41,7 @@ const IndexPage = () => {
         <main>
             <MainContainer>
                 <PostList>
-                    {posts.map((post) => {
+                    {posts.sort(sortNotionNodesByDate).map((post) => {
                         return <PostPreview post={post} key={post.id} />;
                     })}
                 </PostList>

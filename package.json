@@ -26,7 +26,6 @@
     "gatsby-remark-images": "^7.2.0",
     "gatsby-remark-prismjs": "^7.2.0",
     "gatsby-remark-responsive-iframe": "^6.2.0",
-    "gatsby-source-contentful": "^8.6.1",
     "gatsby-source-filesystem": "^5.2.0",
     "gatsby-source-notion-feely": "^2.0.0",
     "gatsby-transformer-remark": "^6.2.0",
